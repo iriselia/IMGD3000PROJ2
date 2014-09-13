@@ -26,3 +26,16 @@
 *.exe
 *.out
 *.app
+
+build
+CMakeFiles/
+CMakeCache.txt
+
+*.vcxproj*
+*.opensdf
+*.sdf
+*.suo
+*.sln
+*.dll
+*.ilk
+*.bsc

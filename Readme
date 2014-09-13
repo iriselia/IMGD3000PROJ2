@@ -1,0 +1,3 @@
+DragonflyDummy exists only to provide a convenience way to browse the headers
+so there is no need to link DragonflyDummy.lib to anything.
+
