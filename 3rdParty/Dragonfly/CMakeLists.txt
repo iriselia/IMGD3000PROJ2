@@ -5,9 +5,7 @@ file(GLOB_RECURSE MY_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src *.cpp *.c)
 create_source_group("Source Files" "${CMAKE_CURRENT_SOURCE_DIR}/src" ${MY_SRC})
 
 file(GLOB_RECURSE MY_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
-if( MY_HEADERS )
 create_source_group("Header Files" "${CMAKE_CURRENT_SOURCE_DIR}/include" ${MY_HEADERS})
-endif()
 
 set (MY_INCLUDE_DIRS "")
 foreach (_headerFile ${MY_HEADERS})
@@ -18,9 +16,9 @@ list(REMOVE_DUPLICATES MY_INCLUDE_DIRS)
 include_directories( ${MY_INCLUDE_DIRS} )
 set(DRAGONFLY_INCLUDE_DIRS ${MY_INCLUDE_DIRS})
 
-add_library (DragonflyDummy STATIC ${MY_SRC} ${MY_HEADERS})
+add_library (DragonflyStudentImpl STATIC ${MY_SRC} ${MY_HEADERS})
 
 if( MSVC )
 	SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
-	SET_PROPERTY(TARGET DragonflyDummy		PROPERTY FOLDER "3rd Party")
+	SET_PROPERTY(TARGET DragonflyStudentImpl		PROPERTY FOLDER "3rd Party")
 endif()

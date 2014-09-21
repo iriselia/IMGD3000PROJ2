@@ -2,8 +2,7 @@
 /// A line segment
 ///
 
-#ifndef __LINE_H__
-#define __LINE_H__
+#pragma once
 
 #include "Position.h"
 
@@ -26,5 +25,3 @@ class Line {
   void setP2(Position new_p2);  ///< Set second endpoint.
   Position getP2() const;       ///< Get second endpoint.
 };
-
-#endif //__LINE_H__

@@ -2,8 +2,7 @@
 /// The base event
 ///
 
-#ifndef __EVENT_H__
-#define __EVENT_H__
+#pragma once
 
 #include <string>
 
@@ -18,16 +17,20 @@ class Event {
 
  public:
   /// Create base event.
-  Event();
+	 Event();
 
   /// Destructor.
-  virtual ~Event();
+	 virtual ~Event() {}
 
   /// Set event type.
-  void setType(string new_type);  
+  void setType(string new_type)
+  {
+	  event_type = new_type;
+  }
 
   /// Get event type.
-  string getType() const;
+  string getType() const
+  {
+	  return event_type;
+  }
 }; 
-
-#endif // __EVENT_H__

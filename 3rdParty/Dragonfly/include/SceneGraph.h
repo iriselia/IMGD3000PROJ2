@@ -2,8 +2,7 @@
 /// A scene graph
 ///
 
-#ifndef __SCENE_GRAPH_H__
-#define __SCENE_GRAPH_H__
+#pragma once
 
 #include "Object.h"
 #include "ObjectList.h"
@@ -19,7 +18,7 @@ class SceneGraph {
   ObjectList inactive_objects; ///< All inactive Objects.
   
  public:
-  SceneGraph();
+	 SceneGraph();
   
   /// Insert Object into SceneGraph.
   int insertObject(Object *p_o);
@@ -28,16 +27,28 @@ class SceneGraph {
   int removeObject(Object *p_o);
 
   /// Return all active Objects. Empty list if none.
-  ObjectList activeObjects() const;
+  ObjectList activeObjects() const
+  {
+	  return active_objects;
+  }
 
   /// Return all active, solid Objects. Empty list if none.
-  ObjectList solidObjects() const;
+  ObjectList solidObjects() const
+  {
+	  return solid_objects;
+  }
 
   /// Return all active, visible Objects at altitude. Empty list if none.
-  ObjectList visibleObjects(int altitude) const;
+  ObjectList visibleObjects(int altitude) const
+  {
+	  return visible_objects[altitude];
+  }
 
   /// Return all inactive Objects. Empty list if none.
-  ObjectList inactiveObjects() const;
+  ObjectList inactiveObjects() const
+  {
+	  return inactive_objects;
+  }
   
   /// Re-position Object in SceneGraph to new altitude.
   /// Return 0 if ok, else -1.
@@ -55,5 +66,3 @@ class SceneGraph {
   /// Return 0 if ok, else -1.
   int updateActive(Object *p_o, bool new_active);
 };
-  
-#endif // __SCENE_GRAPH_H__

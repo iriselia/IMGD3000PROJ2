@@ -1,3 +1,51 @@
-DragonflyDummy exists only to provide a convenience way to browse the headers
-so there is no need to link DragonflyDummy.lib to anything.
+Student Name: Yong Piao
+ID: YPIAO
 
+----Project2-
+Platform: Windows/Visual Studio with CMake
+Description:
+I wrote some CMake scripts to organize the source files. It is very flexible and allows the
+unwieldy MSVC solution to easily compile on any windows computer.
+
+I did not try to keep the code cross-platform.
+
+I initially used the complete version of dragonfly headers, but later was strongly encouraged to
+use the checkpoint version. I decided to keep the headers that are the same, and only change the methods
+that affect the core design, such as objectlist handling.
+
+I used c++11 thread-safe constructors for singleton classes.
+Getters and setters are kept in header files because pre-compiled headers
+will make the difference unnoticeable and make the code read better.
+
+As of the objectlist, I decided to sort the list everytime I delete an object.
+This makes insertion of objects fast, and removal slow. A better design would be to
+change the design of object list iterator to allow end of list, instead of setting
+isDone() as the number of objects. There's definitely a lot of room for improvement,
+but the original header does not like those changes.
+
+The clock class is currently designed to only work with windows. I think a better 
+design would be to create platform abstraction layers, instead of going crazy with
+platform if marcos.
+
+A class called ExampleObject is created for demonstration purposes. When its x position reaches
+30, it will call for the game engine to shut down. Does nothing otherwise.
+
+The entire behavior, including sorting, should be demonstrated by the example program project2.exe
+
+----How to use:
+Install CMake on windows.
+
+Open cmake and type in the root directory of the project.
+This path should include CMakeLists.txt, a CMake folder, and a 3rdParty folder.
+
+Set the output path as *replace this section with your root directory*/Build.
+
+Next, click Configure, choose the compiler you are using, however choose the x86 version,
+not 64 bit, nor the ARM verison.
+
+Click generate.
+
+Go to the Build folder under the root directory. The solution should be created,
+all necessary settings should be set based on your environment.
+
+Build and run.

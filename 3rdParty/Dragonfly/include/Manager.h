@@ -2,8 +2,7 @@
 /// The base manager
 ///
 
-#ifndef __MANAGER_H__
-#define __MANAGER_H__
+#pragma once
 
 #include "Event.h"
 #include "Object.h"
@@ -60,5 +59,3 @@ class Manager {
   int unregisterInterest(Object *p_o, string event_type);
 
 };
-
-#endif /// __MANAGER_H__

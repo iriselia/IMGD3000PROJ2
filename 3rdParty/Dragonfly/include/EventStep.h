@@ -2,8 +2,7 @@
 /// A "step" event, generated once per game loop.
 ///
 
-#ifndef __EVENT_STEP_H__
-#define __EVENT_STEP_H__
+#pragma once
 
 #include "Event.h"
 
@@ -16,16 +15,20 @@ class EventStep : public Event {
   
  public:
   /// Default constructor.
-  EventStep();
+	 EventStep();
   
   /// Constructor with initial step count.
-  EventStep(int init_step_count);
+	 EventStep(int init_step_count);
   
   /// Set step count.
-  void setStepCount(int new_step_count);
+	 void setStepCount(int new_step_count)
+	 {
+		 step_count = new_step_count;
+	 }
 
   /// Get step count.
-  int getStepCount() const;
+	 int getStepCount() const
+	 {
+		 return step_count;
+	 }
 };
-
-#endif // __EVENT_STEP_H__

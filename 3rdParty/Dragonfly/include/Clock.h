@@ -2,29 +2,30 @@
 /// The clock, for timing
 ///
 
-#ifndef __CLOCK_H__
-#define __CLOCK_H__
+#pragma once
 
 #include <time.h>
+#include <windows.h>
 
-class Clock {
+class Clock
+{
 
- private:
-  struct timespec prev_ts;  /// Store previous time called.
+private:
+	//struct timespec prev_ts;  /// Store previous time called.
+	double frequency;		  // stores the motherboard time refresh frequency.
+	LARGE_INTEGER prevCounter;   // windows version of timespec
 
- public:
-  /// Sets prev_ts to current time.
-  Clock();
+public:
+	/// Sets prev_ts to current time.
+	Clock();
 
-  /// Return time elapsed since delta() was called.
-  /// Units are microseconds.
-  /// Return -1 if error.
-  long int delta(void);
+	/// Return time elapsed since delta() was called.
+	/// Units are microseconds.
+	/// Return -1 if error.
+	long int delta(void);
 
-  /// Return time elapsed since delta() was last called.
-  /// Units are microseconds.
-  /// Return -1 if error.
-  long int split(void) const;
+	/// Return time elapsed since delta() was last called.
+	/// Units are microseconds.
+	/// Return -1 if error.
+	long int split(void) const;
 };
-
-#endif // __CLOCK_H__

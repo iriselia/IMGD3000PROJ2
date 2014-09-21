@@ -2,8 +2,7 @@
 /// The base game world object
 ///
 
-#ifndef __OBJECT_H__
-#define __OBJECT_H__
+#pragma once
 
 #include <string>
 
@@ -72,94 +71,169 @@ class Object {
  public:
   /// Construct Object. Set default parameters and
   /// add to game world (WorldManager).
-  Object();
-
+	 Object();
+	 
   /// Destroy Object. Unregister for any interested events.
   /// Remove from game world (WorldManager).
-  virtual ~Object();
+	 virtual ~Object();
 
   /// Set Object id.
-  void setId(int new_id);
+  void setId(int new_id)
+  {
+	  id = new_id;
+  }
 
   /// Get Object id.
-  int getId() const;
+  int getId() const
+  {
+	  return id;
+  }
   
   /// Set type identifier of Object.
-  void setType(string new_type);
+  void setType(string new_type)
+  {
+	  this->type = new_type;
+  }
 
   /// Get type identifier of Object.
-  string getType() const;
+  string getType() const
+  {
+	  return type;
+  }
 
   ///< Return True if Object is HARD or SOFT, else False.
-  bool isSolid() const;    
+  bool isSolid() const
+  {
+	  return solidness == HARD || solidness == SOFT;
+  }
 
   /// Set solidness of Object, with checks for consistency.  
   /// Return 0 if ok, else -1.
-  int setSolidness(Solidness new_solid);
+  int setSolidness(Solidness new_solid)
+  {
+	  solidness = new_solid;
+  }
 
   /// Return solidness of Object.
-  Solidness getSolidness() const;
+  Solidness getSolidness() const
+  {
+	  return solidness;
+  }
 
   /// Set visibility of Object.  Objects not visible are not drawn.
   /// Return 0 if ok, else -1.
-  int setVisible(bool visible=true);
+  int setVisible(bool visible = true)
+  {
+	  this->is_visible = visible;
+  }
 
   /// Return visibility of Object.  Objects not visible are not drawn.
-  bool isVisible() const;
+  bool isVisible() const
+  {
+	  return is_visible;
+  }
 
   /// Set activeness of Object.  Objects not active are not acted upon
   /// by engine.
   /// Return 0 if ok, else -1.
-  int setActive(bool active=true);
+  int setActive(bool active = true)
+  {
+	  is_active = active;
+  }
 
   /// Return activeness of Object.  Objects not active are not acted upon
   /// by engine.
-  bool isActive() const;
+  bool isActive() const
+  {
+	  return is_active;
+  }
 
   /// Set altitude of Object, with checks for range [0, MAX_ALTITUDE].
   /// Return 0 if ok, else -1.
-  int setAltitude(int new_altitude);
+  int setAltitude(int new_altitude)
+  {
+	  this->altitude = new_altitude;
+  }
    
   /// Return altitude of Object.
-  int getAltitude() const;
+  int getAltitude() const
+  {
+	  return altitude;
+  }
    
   /// Set x velocity of Object.
-  void setXVelocity(float new_x_velocity);
+  void setXVelocity(float new_x_velocity)
+  {
+	  x_velocity = new_x_velocity;
+  }
 
   /// Get x velocity of Object.
-  float getXVelocity() const;
+  float getXVelocity() const
+  {
+	  return x_velocity;
+  }
 
   /// Set y velocity of Object.
-  void setYVelocity(float new_y_velocity);
+  void setYVelocity(float new_y_velocity)
+  {
+	  y_velocity = new_y_velocity;
+  }
 
   /// Get y velocity of Object.
-  float getYVelocity() const;
+  float getYVelocity() const
+  {
+	  return y_velocity;
+  }
 
   /// Perform 1 step of velocity in horizontal direction.
   /// Return horizontal distance moved this step.
-  int getXVelocityStep();
+  int getXVelocityStep()
+  {
+
+  }
 
   /// Perform 1 step of velocity in vertical direction.
   /// Return vertical distance moved this step.
-  int getYVelocityStep();
+  int getYVelocityStep()
+  {
+
+  }
 
   /// Set "no soft" setting of Object (true - cannot move onto SOFT Objects).
-  void setNoSoft(bool new_no_soft=true);
+  void setNoSoft(bool new_no_soft = true)
+  {
+	  this->no_soft = new_no_soft;
+  }
 
   /// Get "no soft" setting of Object (true - cannot move onto SOFT Objects).
-  bool getNoSoft() const;
+  bool getNoSoft() const
+  {
+	  return no_soft;
+  }
 
   /// Set bounding box of Object.
-  void setBox(Box new_box);
+  void setBox(Box new_box)
+  {
+	  this->box = new_box;
+  }
 
   /// Get bounding box of Object.
-  Box getBox() const;
+  Box getBox() const
+  {
+	  return box;
+  }
 
   /// Set Position of Object.
-  void setPosition(Position new_pos);
+  void setPosition(Position new_pos)
+  {
+	  pos = new_pos;
+  }
 
   /// Get Position of Object.
-  Position getPosition() const;
+  Position getPosition() const
+  {
+	  return pos;
+  }
 
   /// Handle event (default is to ignore everything).
   /// Return 0 if ignored, else 1.
@@ -179,49 +253,95 @@ class Object {
   virtual void draw();
 
   /// Set Sprite name (in ResourceManager) for Object.
-  void setSpriteName(string new_name);
+  void setSpriteName(string new_name)
+  {
+	  this->sprite_name = new_name;
+  }
 
   /// Get Sprite name (in ResourceManager) for Object.
-  string getSpriteName() const;
+  string getSpriteName() const
+  {
+	  return sprite_name;
+  }
 
   /// Set Object Sprite to new one.
   /// If set_box is true, set bounding box to size of Sprite.
   /// Set sprite index to 0 (first frame).
-  void setSprite(Sprite *p_new_sprite, bool set_box=true);
+  void setSprite(Sprite *p_new_sprite, bool set_box = true)
+  {
+	  this->p_sprite = p_new_sprite;
+	  if (set_box)
+	  {
+		//
+	  }
+  }
 
   /// Return pointer to Sprite associated with this Object.
-  Sprite *getSprite() const;
+  Sprite *getSprite() const
+  {
+	  return p_sprite;
+  }
 
   /// Set Sprite to be centered at Object position (pos).
-  void setCentered(bool centered=true);
+  void setCentered(bool centered = true)
+  {
+	  this->sprite_center = centered;
+  }
 
   /// Indicates if Sprite is centered at Object position (pos).
-  bool isCentered() const;
+  bool isCentered() const
+  {
+	  return sprite_center;
+  }
 
   /// Set Sprite transparency character (0 means none).
-  void setTransparency(char transparent=' ');
+  void setTransparency(char transparent = ' ')
+  {
+	  this->sprite_transparency = transparent;
+  }
 
   /// Get Sprite transparency character (0 means none).
-  char getTransparency() const;
+  char getTransparency() const
+  {
+	  return sprite_transparency;
+  }
 
   /// Set index of current Sprite frame to be displayed.
-  void setSpriteIndex(int new_sprite_index);
+  void setSpriteIndex(int new_sprite_index)
+  {
+	  this->sprite_index = new_sprite_index;
+  }
 
   /// Return index of current Sprite frame to be displayed.
-  int getSpriteIndex() const;
+  int getSpriteIndex() const
+  {
+	  return sprite_index;
+  }
 
   /// Slows down sprite animations.
   /// Slowdown value in multiples of WorldManager frame time.
-  void setSpriteSlowdown(int new_sprite_slowdown);
-  int getSpriteSlowdown() const;
-  void setSpriteSlowdownCount(int new_sprite_slowdown_count);
-  int getSpriteSlowdownCount() const;
+  void setSpriteSlowdown(int new_sprite_slowdown)
+  {
+	  this->sprite_slowdown = new_sprite_slowdown;
+  }
+  int getSpriteSlowdown() const
+  {
+	  return sprite_slowdown;
+  }
+  void setSpriteSlowdownCount(int new_sprite_slowdown_count)
+  {
+	  this->sprite_slowdown_count = new_sprite_slowdown_count;
+  }
+  int getSpriteSlowdownCount() const
+  {
+	  return sprite_slowdown_count;
+  }
   
   /// Serialize Object attributes to single string.
   /// e.g., "id:110,is_active:true, ...
   /// Only modified attributes are serialized (unless all is true).
   /// Clear modified[] array.
-  virtual string serialize(bool all=false);
+  virtual string serialize(bool all = false);
 
   /// Deserialize string to become Object attributes.
   /// Return 0 if no errors, else -1.  
@@ -233,5 +353,3 @@ class Object {
   /// Return true if any attribute modified since last serialize.
   virtual bool isModified() const;
 };
-
-#endif // __OBJECT_H__

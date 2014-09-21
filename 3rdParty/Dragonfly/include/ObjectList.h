@@ -2,8 +2,7 @@
 /// A list of Objects
 ///
 
-#ifndef __OBJECT_LIST_H__
-#define __OBJECT_LIST_H__
+#pragma once
 
 #include "Object.h"
 #include "ObjectListIterator.h"
@@ -11,46 +10,54 @@
 class Object;
 class ObjectListIterator;
 
-class ObjectList {
+class ObjectList
+{
 
- private:
-  int count;                  ///< Count of objects in list.
-  int max_count;              ///< Maximum objects in list (variable).
-  Object **p_item;            ///< Array of pointers to objects.
+private:
+	int count = 0;                  ///< Count of objects in list.
+	int max_count = 5000;              ///< Maximum objects in list (variable).
+	Object **p_item;            ///< Array of pointers to objects.
 
- public:
-  friend class ObjectListIterator;           ///< Iterators can access.
-  ObjectList();
-  ~ObjectList();
+public:
+	friend class ObjectListIterator;           ///< Iterators can access.
+	ObjectList();
+	~ObjectList();
 
-  /// Copy contructor (does deep copy).
-  ObjectList(const ObjectList &other);
-   
-  /// Assignment operator (does deep copy).
-  ObjectList &operator=(const ObjectList &rhs);
-   
-  /// Insert object pointer in list.
-  /// Return 0 if ok, else -1.
-  int insert(Object *p_o);
+	/// Copy constructor (does deep copy).
+	ObjectList(const ObjectList &other);
 
-  /// Remove object pointer from list,
-  /// Return 0 if found, else -1.
-  int remove(Object *p_o);
+	/// Assignment operator (does deep copy).
+	ObjectList &operator=(const ObjectList &rhs);
 
-  /// Clear list (setting count to 0).
-  void clear();
+	/// Insert object pointer in list.
+	/// Return 0 if ok, else -1.
+	int insert(Object *p_o);
 
-  /// Return count of number of objects in list.
-  int getCount() const;
+	/// Remove object pointer from list,
+	/// Return 0 if found, else -1.
+	int remove(Object *p_o);
 
-  /// Return true if list is empty, else false.
-  bool isEmpty() const;
+	/// Clear list (setting count to 0).
+	void clear();
 
-  /// Return true if list is full, else false.
-  bool isFull() const;
+	/// Return count of number of objects in list.
+	int getCount() const
+	{
+		return count;
+	}
 
-  /// Add two lists, second appended to first.
-  ObjectList operator+(ObjectList);
+	/// Return true if list is empty, else false.
+	bool isEmpty() const
+	{
+		return count == 0;
+	}
+
+	/// Return true if list is full, else false.
+	bool isFull() const
+	{
+		return count == max_count;
+	}
+
+	/// Add two lists, second appended to first.
+	ObjectList operator+(ObjectList second_list);
 };
-
-#endif // __OBJECT_LIST_H__

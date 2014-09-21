@@ -2,8 +2,7 @@
 /// A 2d circle
 ///
 
-#ifndef __CIRCLE_H__
-#define __CIRCLE_H__
+#pragma once
 
 #include "Position.h"
 
@@ -26,5 +25,3 @@ class Circle {
   void setRadius(float new_radius);    ///< Set radius.
   float getRadius() const;             ///< Get radius.
 };
-
-#endif //__CIRCLE_H__
