@@ -1,7 +1,7 @@
 #include "InputManager.h"
 #include "EventKeyboard.h"
 #include "EventMouse.h"
-
+#include "LogManager.h"
 #include "curses.h"
 
 InputManager::InputManager()
@@ -39,12 +39,13 @@ void InputManager::getInput()
 
 void InputManager::shutDown()
 {
-
+	auto& logManager = LogManager::getInstance();
+	logManager.writeLog("Input Manager: shutting down.\n");
 }
 
 int InputManager::startUp()
 {
-	int hr;
+	int hr = 0;
 	// Normal terminal input buffers until \n or \r, so disable.
 	hr |= cbreak();
 	hr |= nodelay(stdscr, TRUE);
@@ -67,6 +68,8 @@ int InputManager::startUp()
 	}
 	else
 	{
+		auto& logger = LogManager::getInstance();
+		logger.writeLog("Input Manager:: starting up.\n");
 		return OK;
 	}
 }

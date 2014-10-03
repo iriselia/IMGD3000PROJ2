@@ -5,12 +5,14 @@
 #include "EventStep.h"
 #include "EventCollision.h"
 #include "EventOut.h"
+#include "ViewObject.h"
 
 WorldManager::WorldManager()
 {
 	deletions = ObjectList();
 	updates = ObjectList();
 	boundary = Box();
+	view = Box();
 }
 
 ObjectList WorldManager::objectsInCircle(Circle circle) const
@@ -54,8 +56,32 @@ bool positionsIntersect(Position p1, Position p2)
 	}
 }
 
-//*/
+bool boxIntersectsBox(Box A, Box B)
+{
+	bool x_overlap = false;
+	bool y_overlap = false;
+	int AL = A.getCorner().getX();
+	int AR = A.getCorner().getX() + A.getHorizontal() - 1;
+	int BL = B.getCorner().getX();
+	int BR = B.getCorner().getX() + B.getHorizontal() - 1;
 
+	x_overlap |= BL <= AL && AL <= BR;
+	x_overlap |= BL <= AR && AR <= BR;
+
+	int AT = A.getCorner().getY();
+	int AB = A.getCorner().getY() + A.getVertical() - 1;
+	int BT = B.getCorner().getY();
+	int BB = B.getCorner().getY() + B.getVertical() - 1;
+
+
+	y_overlap |= BT <= AT && AT <= BB;
+	y_overlap |= BT <= AB && AB <= BB;
+	//y_overlap |= 
+
+	return x_overlap && y_overlap;
+}
+//*/
+ 
 ObjectList WorldManager::isCollision(Object *p_o, Position where) const
 {
 	// Make empty list.
@@ -69,7 +95,7 @@ ObjectList WorldManager::isCollision(Object *p_o, Position where) const
 		if (p_temp_o != p_o)// Do not consider self.
 		{
 			// Same location and both solid?
-			if (positionsIntersect(p_temp_o->getPosition(), where) &&
+			if (boxIntersectsBox(getWorldBox(p_o, where), getWorldBox(p_temp_o)) &&
 				p_temp_o->isSolid())
 			{
 				collision_list.insert(p_temp_o);
@@ -84,7 +110,7 @@ ObjectList WorldManager::isCollision(Object *p_o, Position where) const
 
 ///*
 // Return true if two positions intersect, else false.
-bool inBound(Position pos)
+bool inBound(Box box)
 {
 	auto& gfxManager = GraphicsManager::getInstance();
 
@@ -92,10 +118,13 @@ bool inBound(Position pos)
 	int x = gfxManager.getVertical();
 	int y = gfxManager.getHorizontal();
 
+	Position pos = box.getCorner();
+
+
 	hr |= pos.getX() > x;
 	hr |= pos.getY() > y;
-	hr |= pos.getX() < 0;
-	hr |= pos.getY() < 0;
+	hr |= (pos.getX() + box.getVertical()) > 0;
+	hr |= (pos.getY() + box.getHorizontal()) > 0;
 
 	return hr ? false : true;
 }
@@ -139,9 +168,9 @@ int WorldManager::moveObject(Object *p_o, Position where)
 	}
 
 	//Check for out of screen event
-	if (inBound(p_o->getPosition()))
+	if (inBound(getWorldBox(p_o)))
 	{
-		if (!inBound(where))
+		if (!inBound(getWorldBox(p_o,where)))
 		{
 			EventOut ov;
 			p_o->eventHandler(&ov);
@@ -150,20 +179,34 @@ int WorldManager::moveObject(Object *p_o, Position where)
 	}
 
 	p_o->setPosition(where);
+
+	if (p_view_following == p_o)
+	{
+		setViewPosition(p_o->getPosition());
+	}
 	return 0;
 }
 
 void WorldManager::draw()
 {
 	ObjectListIterator itr(&updates);
-	for (int alt = 0; alt < DF_MAX_ALTITUDE; alt++)
+	for (int alt = 0; alt <= DF_MAX_ALTITUDE; alt++)
 	{
 		itr.first();
 		while (!itr.isDone())
 		{
 			if (itr.currentObject()->getAltitude() == alt)
 			{
-				itr.currentObject()->draw();
+				// Bounding box coordinates are relative to Object,
+				// so convert to world coordinates.
+				Box temp_box = getWorldBox(itr.currentObject());
+
+				if (boxIntersectsBox(temp_box, view) || // Object in view,
+					dynamic_cast <ViewObject*> (itr.currentObject())) // or is ViewObject.
+				{
+					itr.currentObject()->draw();
+
+				}
 			}
 			itr.next();
 		}
@@ -244,7 +287,13 @@ void WorldManager::shutDown()
 int WorldManager::startUp()
 {
 	auto& logManager = LogManager::getInstance();
+	auto& gfxManager = GraphicsManager::getInstance();
 
+	int x = gfxManager.getVertical();
+	int y = gfxManager.getHorizontal();
+
+	boundary = Box(Position(), x * 2, y * 2);
+	view = Box(Position(), x, y);
 	//start up base first
 	bool b_isFailed = Manager::startUp();
 
@@ -264,3 +313,49 @@ bool WorldManager::isValid(string event_type) const
 	}
 }
 
+void WorldManager::setViewPosition(Position view_pos)
+{
+	// Make sure horizontal not out of world boundary.
+	int x = view_pos.getX() - view.getHorizontal() / 2;
+	if ((x + view.getHorizontal()) > boundary.getHorizontal())
+	{
+		x = boundary.getHorizontal() - view.getHorizontal();
+
+	}
+	if (x < 0)
+	{
+		x = 0;
+	}
+	// Make sure vertical not out of world boundary.
+	int y = view_pos.getY() - view.getVertical() / 2;
+	if ((y + view.getVertical()) > boundary.getVertical())
+	{
+		y = boundary.getVertical() - view.getVertical();
+	}
+	if (y < 0)
+	{
+		y = 0;
+	}
+	// Set view.
+	Position new_corner(x, y);
+	view.setCorner(new_corner);
+}
+
+int WorldManager::setViewFollowing(Object *p_new_view_following)
+{
+	if (!p_new_view_following)
+	{
+		this->p_view_following = nullptr;
+		return 0;
+	}
+
+	auto itr = ObjectListIterator(&updates);
+	for (itr.first(); !itr.isDone(); itr.next())
+	{
+		if (itr.currentObject() == p_new_view_following)
+		{
+			p_view_following = p_new_view_following;
+			setViewPosition(p_view_following->getPosition());
+		}
+	}
+}

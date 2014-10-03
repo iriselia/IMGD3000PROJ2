@@ -6,6 +6,7 @@
 #include "GraphicsManager.h"
 #include "LogManager.h"
 #include "WorldManager.h"
+#include "ResourceManager.h"
 #include "EventOut.h"
 
 // Game includes.
@@ -17,6 +18,12 @@ Bullet::Bullet(Position hero_pos) {
   // Set object properties.
   setType("Bullet");
   setXVelocity(1);		// move 1 space right every frame
+
+  auto& resMgr = ResourceManager::getInstance();
+  setSprite(resMgr.getSprite("bullet"));
+  setSpriteSlowdown(4);
+  // Set object type.
+  setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
 
   // Set starting location, based on hero's position passed in.
   Position pos(hero_pos.getX()+3, hero_pos.getY());
@@ -56,6 +63,7 @@ void Bullet::hit(EventCollision *p_c) {
 }
 
 void Bullet::draw() {
-  GraphicsManager &graphics_manager = GraphicsManager::getInstance();
-  graphics_manager.drawCh(getPosition(), BULLET_CHAR, COLOR_BLUE); 
+	Object::draw();
+//   GraphicsManager &graphics_manager = GraphicsManager::getInstance();
+//   graphics_manager.drawCh(getPosition(), BULLET_CHAR, COLOR_BLUE); 
 }

@@ -1,5 +1,6 @@
 #include "Object.h"
 #include "WorldManager.h"
+#include "GraphicsManager.h"
 
 bool Object::isModified() const
 {
@@ -27,7 +28,27 @@ string Object::serialize(bool all /*= false*/)
 
 void Object::draw()
 {
+	auto& gfxMgr = GraphicsManager::getInstance();
+	int index = getSpriteIndex();
+	int count = getSpriteSlowdownCount();
+	gfxMgr.drawFrame(pos, p_sprite->getFrame(index), isCentered(), false, p_sprite->getColor());
 
+	if (sprite_slowdown == 0)
+	{
+		return;
+	}
+	else
+	{
+		count++;
+		if (count >= sprite_slowdown)
+		{
+			count = 0;
+			++index %= (p_sprite->getFrameCount());
+		}
+	}
+
+	setSpriteSlowdownCount(count);
+	setSpriteIndex(index);
 }
 
 int Object::unregisterInterest(string event_type)
@@ -47,13 +68,19 @@ int Object::eventHandler(Event *p_event)
 
 Object::Object()
 {
-	pos = Position(-1, -1);               ///< Position in the game world.
+	pos = Position(0, 0);               ///< Position in the game world.
 	x_velocity = 0;           ///< Horizontal speed in spaces per game step.
 	x_velocity_countdown = 0; ///< Countdown to horizontal movement.
 	y_velocity = 0;           ///< Vertical speed in spaces per game step.
 	y_velocity_countdown = 0; ///< Countdown to vertical movement.
 	altitude = 0;
+	sprite_index = 0;
+	sprite_slowdown = 0;
+	sprite_slowdown_count = 0;
+	sprite_center = false;
 	solidness = HARD;
+	sprite_center = true;
+	p_sprite = nullptr;
 
 	auto & worldManager = WorldManager::getInstance();
 	worldManager.insertObject(this);

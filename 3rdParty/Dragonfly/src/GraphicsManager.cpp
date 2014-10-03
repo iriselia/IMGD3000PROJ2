@@ -1,5 +1,6 @@
 #include "GraphicsManager.h"
 #include "WorldManager.h"
+#include "LogManager.h"
 
 GraphicsManager::GraphicsManager()
 {
@@ -81,8 +82,11 @@ int GraphicsManager::drawString(Position world_pos, string str, Justification ju
 int GraphicsManager::drawCh(Position world_pos, char ch, int color /*= DF_COLOR_DEFAULT*/) const
 {
 	int hr;
+
+	Position view_pos = worldToView(world_pos);
+
 	wattron(p_buffer, COLOR_PAIR(color));
-	hr = mvwaddch(p_buffer, world_pos.getY(), world_pos.getX(), ch);
+	hr = mvwaddch(p_buffer, view_pos.getY(), view_pos.getX(), ch);
 	wattroff(p_buffer, COLOR_PAIR(color));
 	if (!hr)
 		return 0;
@@ -96,6 +100,9 @@ void GraphicsManager::shutDown()
 	delwin(buffer2);
 	endwin();
 	bool down = isendwin();
+
+	auto& logManager = LogManager::getInstance();
+	logManager.writeLog("Graphics Manager: shutting down.\n");
 }
 
 int GraphicsManager::startUp()
@@ -149,6 +156,8 @@ int GraphicsManager::startUp()
 	hr = Manager::startUp();
 	if (hr) printf("curses failed to initialize wattron.\n");
 
+	auto& logger = LogManager::getInstance();
+	logger.writeLog("Graphics Manager:: starting up.\n");
 	//return
 	if (!hr)
 		return 0;

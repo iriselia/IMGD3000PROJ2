@@ -5,8 +5,7 @@
 // can stand alone.
 //
 
-#ifndef __UTILITY_H__
-#define __UTILITY_H__
+#pragma once
 
 // System includes
 #include <sstream>		// for toString()
@@ -78,4 +77,3 @@ string toString(bool b);
 // If str is empty, use previously parsed string str.
 // Return empty string if no match.
 string match(string str, string find);
-#endif // __UTILITY_H__

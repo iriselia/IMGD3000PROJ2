@@ -2,8 +2,7 @@
 /// The view object
 ///
 
-#ifndef __VIEW_OBJECT_H__
-#define __VIEW_OBJECT_H__
+#pragma once
 
 #include <string>
 
@@ -11,6 +10,11 @@ using std::string;
 
 #include "Event.h"        
 #include "Object.h"
+#include "GraphicsManager.h"
+#include "EventView.h"
+#include "WorldManager.h"
+#include <sstream>
+#include "utility.h"
 
 /// Count of number of view object modified attribute categories.
 #define DF_VATTR_COUNT 5
@@ -54,30 +58,31 @@ public:
 	/// ViewObject defaults: border, top_center, default color.
 	ViewObject()
 	{
-		border = true;
-		location = TOP_CENTER;
-		color = 0;
+		// Initialize Object attributes.
+		setSolidness(SPECTRAL);
+		setAltitude(DF_MAX_ALTITUDE);
+		setType("ViewObject");
+		// Initialize ViewObject attributes.
+		setValue(0);
+		setBorder(true);
+		setLocation(TOP_CENTER);
+		setColor(DF_COLOR_DEFAULT);
+		setBox(Box(Position(), 0, 0));
+		setSprite(nullptr);
+		// Register interest in view events (EVENTVIEW).
+		registerInterest(DF_VIEW_EVENT);
 		// default;
 	}
 
 	/// Draw view string and value.
-	virtual void draw()
-	{
-
-	}
+	virtual void draw();
 
 	/// Handle "view" event if tag matches view_string (others ignored).
 	/// Return 0 if ignored, else 1.
-	virtual int eventHandler(Event *p_e)
-	{
-		return 0;
-	}
+	virtual int eventHandler(Event *p_e);
 
 	/// Set general location of ViewObject on screen.
-	void setLocation(ViewObjectLocation new_location)
-	{
-		location = new_location;
-	}
+	void setLocation(ViewObjectLocation new_location);
 
 	/// Get general location of ViewObject on screen.
 	ViewObjectLocation getLocation() const
@@ -159,4 +164,3 @@ public:
 		return false;
 	}
 };
-#endif // __VIEW_OBJECT_H__

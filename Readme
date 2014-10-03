@@ -4,10 +4,8 @@ ID: YPIAO
 ----Project2-
 Platform: Windows/Visual Studio with CMake
 Description:
-I wrote some CMake scripts to organize the source files. It is very flexible and allows the
-unwieldy MSVC solution to easily compile on any windows computer.
 
-Sample saucer game runs no problem, except the viewobject is disabled due to class scheduling.
+Sample saucer game with sprites and score table runs no problem, viewobject works perfectly as well.
 
 ----How to use:
 Install CMake on windows.

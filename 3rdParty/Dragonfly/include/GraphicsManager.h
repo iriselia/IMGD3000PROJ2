@@ -29,68 +29,99 @@
 #include "Position.h"
 #include "Frame.h"
 
-enum Justification {
-  LEFT_JUSTIFIED,
-  CENTER_JUSTIFIED,
-  RIGHT_JUSTIFIED,
+enum Justification
+{
+	LEFT_JUSTIFIED,
+	CENTER_JUSTIFIED,
+	RIGHT_JUSTIFIED,
 };
 
-class GraphicsManager : public Manager {
+class GraphicsManager : public Manager
+{
 
- private:
-  GraphicsManager();                        ///< Private since a singleton.
-  GraphicsManager (GraphicsManager const&); ///< Don't allow copy.
-  void operator=(GraphicsManager const&);   ///< Don't allow assignment.
-  WINDOW *buffer1;                          ///< Allocated drawing buffer 1.
-  WINDOW *buffer2;                          ///< Allocated drawing buffer 2.
-  WINDOW *p_buffer;                ///< Pointer to current drawing buffer.
+private:
+	GraphicsManager();                        ///< Private since a singleton.
+	GraphicsManager(GraphicsManager const&); ///< Don't allow copy.
+	void operator=(GraphicsManager const&);   ///< Don't allow assignment.
+	WINDOW *buffer1;                          ///< Allocated drawing buffer 1.
+	WINDOW *buffer2;                          ///< Allocated drawing buffer 2.
+	WINDOW *p_buffer;                ///< Pointer to current drawing buffer.
 
- public:
-  /// Get the one and only instance of the GraphicsManager.
-	 static GraphicsManager &getInstance()
-	 {
-		 static GraphicsManager instance;
-		 return instance;
-	 }
+public:
+	/// Get the one and only instance of the GraphicsManager.
+	static GraphicsManager &getInstance()
+	{
+		static GraphicsManager instance;
+		return instance;
+	}
 
-  /// Get terminal ready for text-based display.
-  /// Return 0 if ok, else return negative number.
-	 int startUp();
+	/// Get terminal ready for text-based display.
+	/// Return 0 if ok, else return negative number.
+	int startUp();
 
-  /// Revert back to normal terminal display.
-	 void shutDown();
+	/// Revert back to normal terminal display.
+	void shutDown();
 
-  /// Draw character at screen location (x,y) with color.
-  /// Return 0 if ok, else -1.
-	 int drawCh(Position world_pos, char ch, int color = DF_COLOR_DEFAULT) const;
+	/// Draw character at screen location (x,y) with color.
+	/// Return 0 if ok, else -1.
+	int drawCh(Position world_pos, char ch, int color = DF_COLOR_DEFAULT) const;
 
-  /// Draw single sprite frame at screen location (x,y) with color.
-  /// If centered true, then center frame at (x,y).
-  /// Don't draw transparent characters (0 means none).
-  /// Return 0 if ok, else -1.
-  int drawFrame(Position world_pos, Frame frame, bool centered, 
-                char transparent, int color=DF_COLOR_DEFAULT) const;
+	/// Draw single sprite frame at screen location (x,y) with color.
+	/// If centered true, then center frame at (x,y).
+	/// Don't draw transparent characters (0 means none).
+	/// Return 0 if ok, else -1.
+	int drawFrame(Position world_pos, Frame frame, bool centered,
+		char transparent, int color/* = DF_COLOR_DEFAULT*/) const
+	{
+		int x_offset = 0;
+		int y_offset = 0;
+		if (frame.getString() == "")
+		{
+			return -1;
+		}
 
-  /// Draw string at screen location (x,y) with color.
-  /// Justified left, center or right.
-  /// Return 0 if ok, else -1.
-  int drawString(Position world_pos, string str, Justification just,
-	  int color = DF_COLOR_DEFAULT) const;
+		if (centered)
+		{
+			x_offset = frame.getWidth() / 2;
+			y_offset = frame.getHeight() / 2;
+		}
 
-  /// Return display's horizontal maximum.
-  int getHorizontal() const;
+		std::string str = frame.getString();
 
-  /// Return display's vertical maximum.
-  int getVertical() const;
+		for (int y = 0; y < frame.getHeight(); y++)
+		{
+			for (int x = 0; x < frame.getWidth(); x++)
+			{
+				Position pos(
+					world_pos.getX() - x_offset + x,
+					world_pos.getY() - y_offset + y);
+				drawCh(pos, str[y * frame.getWidth() + x], color);
+			}
+		}
 
-  /// Render current display buffer.
-  /// Return 0 if ok, else -1.
-  int swapBuffers();
+		return 0;
+	}
 
-  /// Return curses window that has been most recently drawn and refreshed.
-  WINDOW *getPreviousBuffer() const;
- 
-  /// Return curses window that is being drawn to but not yet refreshed.
-  WINDOW *getCurrentBuffer() const;
+	/// Draw string at screen location (x,y) with color.
+	/// Justified left, center or right.
+	/// Return 0 if ok, else -1.
+	int drawString(Position world_pos, string str, Justification just,
+		int color = DF_COLOR_DEFAULT) const;
+
+	/// Return display's horizontal maximum.
+	int getHorizontal() const;
+
+	/// Return display's vertical maximum.
+	int getVertical() const;
+
+	/// Render current display buffer.
+	/// Return 0 if ok, else -1.
+	int swapBuffers();
+
+	/// Return curses window that has been most recently drawn and refreshed.
+	WINDOW *getPreviousBuffer() const;
+
+	/// Return curses window that is being drawn to but not yet refreshed.
+	WINDOW *getCurrentBuffer() const;
 };
 #endif //__GRAPHICS_MANAGER_H__

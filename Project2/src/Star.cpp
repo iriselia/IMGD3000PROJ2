@@ -21,6 +21,7 @@ Star::Star() {
   Position pos(random()%world_manager.getBoundary().getHorizontal(),
 	       random()%world_manager.getBoundary().getVertical());
   setPosition(pos);
+  setBox(Box(Position(), 0, 0));
 }
 
 void Star::draw() {

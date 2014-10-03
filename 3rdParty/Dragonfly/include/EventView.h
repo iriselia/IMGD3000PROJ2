@@ -9,37 +9,67 @@
 
 #define DF_VIEW_EVENT "__view__"
 
-class EventView : public Event {
+class EventView : public Event
+{
 
- private:
-  string tag;     ///< Tag to associate.
-  int value;      ///< Value for view.
-  bool delta;     ///< True if change in value, else replace value
+private:
+	string tag;     ///< Tag to associate.
+	int value;      ///< Value for view.
+	bool delta;     ///< True if change in value, else replace value
 
- public:
-  /// Create view event with tag VIEW_EVENT, value 0 and delta false.
-  EventView();
+public:
+	/// Create view event with tag VIEW_EVENT, value 0 and delta false.
+	EventView()
+	{
+		this->setType(DF_VIEW_EVENT);
+		delta = false;
+		value = 0;
+		tag = "";
+	}
 
-  /// Create view event with tag, value and delta as indicated.
-  EventView(string new_tag, int new_value, bool new_delta);
+	/// Create view event with tag, value and delta as indicated.
+	EventView(string new_tag, int new_value, bool new_delta)
+	{
+		tag = new_tag;
+		value = new_value;
+		delta = new_delta;
+	}
 
-  /// Set tag to new tag.
-  void setTag(string new_tag);
+	/// Set tag to new tag.
+	void setTag(string new_tag)
+	{
+		tag = new_tag;
+	}
 
-  /// Get tag.
-  string getTag() const;
+	/// Get tag.
+	string getTag() const
+	{
+		return tag;
+	}
 
-  /// Set value to new value.
-  void setValue(int new_value);
+	/// Set value to new value.
+	void setValue(int new_value)
+	{
+		value = new_value;
+	}
 
-  /// Get value.
-  int getValue() const;
+	/// Get value.
+	int getValue() const
+	{
+		return value;
+	}
 
-  /// Set delta to new delta.
-  void setDelta(bool new_delta);
+	/// Set delta to new delta.
+	void setDelta(bool new_delta)
+	{
+		delta = new_delta;
+	}
 
-  /// Get delta.
-  bool getDelta() const;
+	/// Get delta.
+	bool getDelta() const
+	{
+		return delta;
+	}
 };
 
 #endif /// __EVENT_VIEW_H__

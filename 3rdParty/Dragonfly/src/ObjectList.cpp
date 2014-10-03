@@ -88,6 +88,8 @@ ObjectList & ObjectList::operator=(const ObjectList &rhs)
 {
 	p_item = (Object**)malloc(sizeof(Object*)* max_count);
 	memcpy(p_item, rhs.p_item, sizeof(Object*)* max_count);
+	count = rhs.count;
+	max_count = rhs.max_count;
 
 	return *this;
 }

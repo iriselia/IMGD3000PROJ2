@@ -3,6 +3,7 @@
 #include "LogManager.h"
 #include "GraphicsManager.h"
 #include "InputManager.h"
+#include "ResourceManager.h"
 #include "Clock.h"
 #include "EventStep.h"
 
@@ -22,9 +23,10 @@ int GameManager::startUp(time_t seed /*= 0*/)
 	bool b_isFailed = Manager::startUp();
 
 	LogManager::getInstance().startUp();
-	WorldManager::getInstance().startUp();
 	GraphicsManager::getInstance().startUp();
+	WorldManager::getInstance().startUp();
 	InputManager::getInstance().startUp();
+	ResourceManager::getInstance().startUp();
 	srand(seed);
 
 	return b_isFailed;
@@ -37,9 +39,10 @@ void GameManager::shutDown()
 		auto& logManager = LogManager::getInstance();
 		logManager.writeLog("GameManager: Shutting down.\n");
 
+		ResourceManager::getInstance().shutDown();
 		InputManager::getInstance().shutDown();
-		GraphicsManager::getInstance().shutDown();
 		WorldManager::getInstance().shutDown();
+		GraphicsManager::getInstance().shutDown();
 		LogManager::getInstance().shutDown();
 
 		//shutdown base at the end

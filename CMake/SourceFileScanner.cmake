@@ -46,17 +46,6 @@ cmake_minimum_required( VERSION 2.8 )
 #
 
 function(create_source_group sourceGroupName relativeSourcePath sourceFiles)
-FOREACH(currentSourceFile ${ARGN})
-	FILE(RELATIVE_PATH folder ${relativeSourcePath} ${currentSourceFile})
-	get_filename_component(filename ${folder} NAME)
-	string(REPLACE ${filename} "" folder ${folder})
-	if(NOT folder STREQUAL "")
-		string(REGEX REPLACE "/+$" "" folderlast ${folder})
-		string(REPLACE "/" "\\" folderlast ${folderlast})
-		SOURCE_GROUP("${sourceGroupName}\\${folderlast}" FILES ${currentSourceFile})
-	endif(NOT folder STREQUAL "")
-ENDFOREACH(currentSourceFile ${ARGN})
-
 FOREACH(currentSourceFile ${sourceFiles})
 	FILE(RELATIVE_PATH folder ${relativeSourcePath} ${currentSourceFile})
 	get_filename_component(filename ${folder} NAME)
@@ -125,3 +114,54 @@ elseif(${mode} STREQUAL "WIN32")
 endif()
 #add_library (${PROJECT_NAME} ${arg1} ${MY_SRC} ${MY_HEADERS})
 endfunction(create_project mode)
+
+
+#
+#
+#
+#
+function(create_project_ex mode includeDirs linkDirs linkLibs)
+
+file(GLOB_RECURSE MY_SRC ${CMAKE_CURRENT_SOURCE_DIR}/ *.cpp *.c)
+if( NOT MY_SRC STREQUAL "" )
+create_source_group("" "${CMAKE_CURRENT_SOURCE_DIR}/" ${MY_SRC})
+endif()
+
+file(GLOB_RECURSE MY_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/ *.h)
+if( NOT MY_HEADERS STREQUAL "" )
+create_source_group("" "${CMAKE_CURRENT_SOURCE_DIR}/" ${MY_HEADERS})
+endif()
+
+if( (MY_SRC STREQUAL "") AND (MY_HEADERS STREQUAL "") )
+message(FATAL_ERROR "Please insert at least one .cpp or .h file in to either src or include directory respectively.")
+endif()
+
+set (CURRENT_INCLUDE_DIRS "")
+foreach (_headerFile ${MY_HEADERS})
+	get_filename_component(_dir ${_headerFile} PATH)
+	list (APPEND CURRENT_INCLUDE_DIRS ${_dir})
+endforeach()
+list(REMOVE_DUPLICATES CURRENT_INCLUDE_DIRS)
+include_directories( ${CURRENT_INCLUDE_DIRS} )
+
+set(${PROJECT_NAME}_INCLUDE_DIRS "${CURRENT_INCLUDE_DIRS}" CACHE STRING "")
+include_directories( ${${PROJECT_NAME}_INCLUDE_DIRS} )
+
+#------ target -----
+include(GenerateVcxprojUserSettings)
+
+include_directories(${includeDirs})
+link_directories(${linkDirs})
+link_libraries(${linkLibs})
+
+if(${mode} STREQUAL "STATIC")
+	add_library (${PROJECT_NAME} STATIC ${MY_SRC} ${MY_HEADERS})
+elseif(${mode} STREQUAL "DYNAMIC")
+	add_library (${PROJECT_NAME} SHARED ${MY_SRC} ${MY_HEADERS})
+elseif(${mode} STREQUAL "CONSOLE")
+	add_executable (${PROJECT_NAME} ${MY_SRC} ${MY_HEADERS})
+elseif(${mode} STREQUAL "WIN32")
+	add_executable (${PROJECT_NAME} WIN32 ${MY_SRC} ${MY_HEADERS})
+endif()
+#add_library (${PROJECT_NAME} ${arg1} ${MY_SRC} ${MY_HEADERS})
+endfunction(create_project_ex mode linkDirectories linLibraries)

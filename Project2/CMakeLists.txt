@@ -15,7 +15,7 @@ ${CMAKE_SOURCE_DIR}/3rdParty/PDCurses/Include
 
 #------ link directories listed ------
 link_directories(
-${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}
+#${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}
 )
 if(WIN32)
 target_link_libraries(

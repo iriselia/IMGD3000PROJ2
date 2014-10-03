@@ -1,6 +1,9 @@
 LogManager: Log File Opened Successfully.
 LogManager: Initialized.
+Graphics Manager:: starting up.
 WorldManager: Initialized.
+Input Manager:: starting up.
+Resource Manager:: starting up.
 GameManager: Step Event sent to all objects.
 WorldManager: Deferred object removal successful.
 GameManager: Step Event sent to all objects.
@@ -1251,3 +1254,835 @@ GameManager: Step Event sent to all objects.
 WorldManager: Deferred object removal successful.
 GameManager: Step Event sent to all objects.
 WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Step Event sent to all objects.
+WorldManager: Deferred object removal successful.
+GameManager: Shutting down.
+Resource Manager:: shutting down.
+Input Manager: shutting down.
+WorldManager: Shutting down.
+Graphics Manager: shutting down.
+LogManager: Shutting down.
