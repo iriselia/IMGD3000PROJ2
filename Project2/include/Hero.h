@@ -2,6 +2,7 @@
 //
 
 #include "EventKeyboard.h"
+#include "EventCollision.h"
 #include "Object.h"
 
 #define HERO_CHAR '>'
