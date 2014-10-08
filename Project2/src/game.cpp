@@ -11,6 +11,7 @@
 #include "Hero.h"
 #include "Star.h"
 #include "Saucer.h"
+#include "Trap.h"
 #include "ViewObject.h"
 #include "Platform.h"
 
@@ -57,6 +58,7 @@ void loadResources()
 	hr |= resource_manager.loadSprite("sprites/saucer-spr.txt", "saucer");
 	hr |= resource_manager.loadSprite("sprites/bullet-spr.txt", "bullet");
 	hr |= resource_manager.loadSprite("sprites/explosion-spr.txt", "explosion");
+	hr |= resource_manager.loadSprite("sprites/trap-spr.txt", "trap");
 
 	if (hr)
 	{
@@ -79,6 +81,7 @@ void populateWorld(void)
 
 	// Create hero.
 	new Hero;
+	new Trap;
 	new Platform;
 	auto a = new ViewObject;
 	a->setLocation(TOP_CENTER);
