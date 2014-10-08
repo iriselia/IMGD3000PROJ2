@@ -2,7 +2,6 @@ cmake_minimum_required( VERSION 2.8 )
 
 SET( INCLUDE_DIRS
 ${PDCurses_INCLUDE_DIRS}
-${Project2_INCLUDE_DIRS}
 )
 SET( LINK_DIRS
 )
