@@ -5,7 +5,7 @@
 #include "Object.h"
 
 #define PLATFORM_THIN '_'
-#define PLATAFORM_THICK '='
+#define PLATFORM_THICK '='
 
 class Platform : public Object {
 
