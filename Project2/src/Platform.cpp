@@ -16,23 +16,23 @@
 
 // Game includes.
 #include "Explosion.h"
-#include "Plataform.h"
+#include "Platform.h"
 #include "EventView.h"
 
-Plataform::Plataform()
+Platform::Platform()
 {
 	LogManager &log_manager = LogManager::getInstance();
 	auto& resMgr = ResourceManager::getInstance();
 
-	setSprite(resMgr.getSprite("plataform"));
+	setSprite(resMgr.getSprite("Platform"));
 	// Set object type.
-	setType("Plataform");
+	setType("Platform");
 	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
 
 	// Set speed in vertical direction.
 	setXVelocity(-0.25);		// 1 space every 4 frames
 	setSpriteSlowdown(4);
-	moveToStart();
+	//moveToStart();
 
 
 
@@ -44,7 +44,7 @@ Plataform::Plataform()
 
 // Handle event.
 // Return 0 if ignored, else 1.
-int Plataform::eventHandler(Event *p_e)
+int Platform::eventHandler(Event *p_e)
 {
 
 	if (p_e->getType() == DF_OUT_EVENT)
@@ -56,7 +56,7 @@ int Plataform::eventHandler(Event *p_e)
 	if (p_e->getType() == DF_COLLISION_EVENT)
 	{
 		EventCollision *p_collision_event = static_cast <EventCollision *> (p_e);
-		hit(p_collision_event);
+		//hit(p_collision_event);
 		return 1;
 	}
 
@@ -64,15 +64,15 @@ int Plataform::eventHandler(Event *p_e)
 	{
 
 		// Create explosion.
-		Explosion *p_explosion = new Explosion;
-		p_explosion->setPosition(this->getPosition());
+		//Explosion *p_explosion = new Explosion;
+		//p_explosion->setPosition(this->getPosition());
 
 		// Delete self.
-		WorldManager &world_manager = WorldManager::getInstance();
-		world_manager.markForDelete(this);
+		//WorldManager &world_manager = WorldManager::getInstance();
+		//world_manager.markForDelete(this);
 
-		// Plataforms appear stay around perpetually
-		new Plataform;
+		// Platforms appear stay around perpetually
+		//new Platform;
 	}
 
 	// If get here, have ignored this event.
@@ -80,7 +80,7 @@ int Plataform::eventHandler(Event *p_e)
 }
 
 // If moved off left edge, move back to far right.
-void Plataform::out()
+void Platform::out()
 {
 
 	// If haven't moved off left edge, then nothing to do.
@@ -88,20 +88,21 @@ void Plataform::out()
 		return;
 
 	// Otherwise, move back to far right.
-	moveToStart();
+	//moveToStart();
 
 	// Spawn new Saucer to make the game get harder.
-	new Plataform;
+	new Platform;
 
 }
 
 // If saucer and player collide, mark both for deletion.
-void Plataform::hit(EventCollision *p_c)
+/*
+void Platform::hit(EventCollision *p_c)
 {
 
 	// If Saucer on Saucer, ignore.
-	if ((p_c->getObject1()->getType() == "Plataform") &&
-		(p_c->getObject2()->getType() == "Plataform"))
+	if ((p_c->getObject1()->getType() == "Platform") &&
+		(p_c->getObject2()->getType() == "Platform"))
 		return;
 
 	// If Bullet ...
@@ -120,7 +121,7 @@ void Plataform::hit(EventCollision *p_c)
 		ev.setTag("Score");
 		worldMgr.onEvent(&ev);
 		// Saucers appear stay around perpetually.
-		new Plataform;
+		new Platform;
 	}
 
 	// If Hero, mark both objects for destruction.
@@ -134,8 +135,12 @@ void Plataform::hit(EventCollision *p_c)
 
 }
 
+*/
+
+
 // Move saucer to starting location on right side of screen.
-void Plataform::moveToStart()
+/*
+void Platform::moveToStart()
 {
 	WorldManager &world_manager = WorldManager::getInstance();
 	Position temp_pos;
@@ -163,7 +168,9 @@ void Plataform::moveToStart()
 	//world_manager.moveObject(this, Position(40, 2));
 }
 
-void Plataform::draw()
+*/
+
+void Platform::draw()
 {
 	Object::draw();
 	//  	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
@@ -173,7 +180,7 @@ void Plataform::draw()
 	// 	curPos << "Height: " << box.getVertical() << " , " << "Width: " << box.getHorizontal();
 	// 	graphics_manager.drawString(Position(0, 23), curPos.str(), LEFT_JUSTIFIED);
 	// 	ResourceManager& resMgr = ResourceManager::getInstance();
-	// 	Sprite* a = resMgr.getSprite("plataform");
+	// 	Sprite* a = resMgr.getSprite("platform");
 	// 	Frame b = a->getFrame(0);
 	// 	graphics_manager.drawFrame(this->getPosition(), b, true, false, a->getColor());
 	//graphics_manager.drawCh(getPosition(), SAUCER_CHAR, COLOR_GREEN); 
