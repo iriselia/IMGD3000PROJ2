@@ -45,6 +45,7 @@ Hero::Hero()
 	// Set firing variables.
 	fire_slowdown = 15;
 	fire_countdown = fire_slowdown;
+	isJumping = false;
 
 	nuke_count = 1;
 }
@@ -134,7 +135,7 @@ void Hero::move(int dy)
 	switch (dy)
 	{
 	case KEY_UP:       // up arrow
-		new_pos.setY(y - 1);
+		jump();
 		break;
 	case KEY_DOWN:     // down arrow
 		new_pos.setY(y + 1);
@@ -201,4 +202,14 @@ void Hero::draw()
 /*	graphics_manager.drawString(Position(0, 24), curPos.str(), LEFT_JUSTIFIED);*/
 	//   GraphicsManager &graphics_manager = GraphicsManager::getInstance();
 	//   graphics_manager.drawCh(getPosition(), HERO_CHAR, COLOR_BLUE); 
+}
+
+void Hero::jump()
+{
+	if (!isJumping)
+	{
+		//apply gravity
+		float currYVel = getYVelocity();
+		setYVelocity(-1.5f);
+	}
 }

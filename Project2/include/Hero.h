@@ -17,6 +17,9 @@ class Hero : public Object {
   void fire();
   void step();
   void nuke();
+  void jump();
+
+  bool isJumping;
 
  public:
   Hero();

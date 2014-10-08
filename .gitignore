@@ -40,3 +40,4 @@ CMakeCache.txt
 *.ilk
 *.bsc
 *.pdb
+*.log
