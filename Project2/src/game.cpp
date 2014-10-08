@@ -71,14 +71,13 @@ void populateWorld(void)
 {
 
 	// Spawn some Stars.
-	for (int i = 0; i <48; i++)
+	for (int i = 0; i <108; i++)
 	{
 		new Star;
 	}
 
 	// Create hero.
 	new Hero;
-	new Saucer;
 	auto a = new ViewObject;
 	a->setLocation(TOP_CENTER);
 	a->setViewString("Score");
@@ -87,7 +86,7 @@ void populateWorld(void)
 	// Spawn some saucers to shoot.
 	for (int i = 0; i < 16; i++)
 	{
-		new Saucer;
+		//new Saucer;
 	}
 	return;
 }

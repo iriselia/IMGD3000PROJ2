@@ -20,7 +20,7 @@ set (TEMPLATE_MSVC_VERSION "Unsupported version")
 endif(MSVC_VERSION LESS 1600)
 
 if(NOT TEMPLATE_MSVC_VERSION EQUAL "Unsupported version")
-message("Visual Studio version: " ${TEMPLATE_MSVC_VERSION} )
+#message("Visual Studio version: " ${TEMPLATE_MSVC_VERSION} )
 else()
 message( FATAL_ERROR "VISUAL STUDIO VERSION NOT SUPPORTED" )
 endif()
