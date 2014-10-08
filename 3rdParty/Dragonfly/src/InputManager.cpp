@@ -9,31 +9,41 @@ InputManager::InputManager()
 
 }
 
+void InputManager::processInput(int key)
+{
+	MEVENT m_event;
+	if (key == KEY_MOUSE && nc_getmouse(&m_event) == OK)
+	{
+		// Mouse, m_event has values.
+		if (m_event.bstate & BUTTON1_CLICKED)
+		{
+			EventMouse newEvent;
+			newEvent.setMouseX(m_event.x);
+			newEvent.setMouseY(m_event.y);
+			newEvent.setMouseAction(LEFT_BUTTON_CLICK);
+			onEvent(&newEvent);
+		}
+	}
+	else
+	{
+		EventKeyboard newEvent;
+		newEvent.setKey(key);
+		onEvent(&newEvent);
+	}
+}
+
 void InputManager::getInput()
 {
 	// Check for input.
 	int key = getch();
 	if (key != ERR)
 	{
-		MEVENT m_event;
-		if (key == KEY_MOUSE && nc_getmouse(&m_event) == OK)
-		{
-			// Mouse, m_event has values.
-			if (m_event.bstate & BUTTON1_CLICKED)
-			{
-				EventMouse newEvent;
-				newEvent.setMouseX(m_event.x);
-				newEvent.setMouseY(m_event.y);
-				newEvent.setMouseAction(LEFT_BUTTON_CLICK);
-				onEvent(&newEvent);
-			}
-		}
-		else
-		{
-			EventKeyboard newEvent;
-			newEvent.setKey(key);
-			onEvent(&newEvent);
-		}
+		processInput(key);
+	}
+	key = getch();
+	if (key != ERR)
+	{
+		processInput(key);
 	}
 }
 

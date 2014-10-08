@@ -37,6 +37,7 @@ public:
 	/// Get input from the keyboard and mouse.
 	/// For each object interested, pass event along.
 	void getInput();
+	void processInput(int key);
 };
 
 #endif //__INPUT_MANAGER_H__
