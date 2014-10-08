@@ -13,6 +13,7 @@
 #include "Saucer.h"
 #include "Trap.h"
 #include "ViewObject.h"
+#include "Platform.h"
 
 // Function prototypes.
 void populateWorld(void);
@@ -81,6 +82,7 @@ void populateWorld(void)
 	// Create hero.
 	new Hero;
 	new Trap;
+	new Platform;
 	auto a = new ViewObject;
 	a->setLocation(TOP_CENTER);
 	a->setViewString("Score");

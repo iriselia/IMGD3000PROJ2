@@ -4,11 +4,14 @@
 
 #include "Object.h"
 
-//#define Platform_CHAR '.'
+#define PLATFORM_THIN '_'
+#define PLATAFORM_THICK '='
 
 class Platform : public Object {
 
  private:
+	 bool isItThick;
+	 int size;
   void out();
   void hit(EventCollision *p_c);
 
