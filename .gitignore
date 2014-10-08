@@ -32,7 +32,7 @@ build/
 CMakeFiles/
 CMakeCache.txt
 
-*.vcxproj*
+*.vcxproj
 *.opensdf
 *.sdf
 *.suo
