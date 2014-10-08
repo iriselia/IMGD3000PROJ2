@@ -38,12 +38,30 @@ Platform::Platform()
 
 
 
-#ifdef REGISTER
-	// Register interest in "nuke" event.
-	registerInterest(NUKE_EVENT);
-#endif 
+
 }
 
+Platform::Platform(bool thickness, int sizee, int heightt, int x, int y)
+{
+	setType("Platform");
+	isItThick = thickness;
+	size = sizee;
+	setSolidness(HARD);
+	setXVelocity(0.0);
+	setXVelocity(0.0);
+	setAltitude(2);	// Make them in the background.
+	WorldManager &world_manager = WorldManager::getInstance();
+	//Position pos(random() % world_manager.getBoundary().getHorizontal(),
+	//	random() % world_manager.getBoundary().getVertical());
+	Position pos(x, y);
+	setPosition(pos);
+	height = heightt;
+	setBox(Box(Position(), size, height));
+
+
+
+
+}
 // Handle event.
 // Return 0 if ignored, else 1.
 int Platform::eventHandler(Event *p_e)
@@ -239,6 +257,71 @@ void Platform::draw()
 				//graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
 			}
 		} // end else
+
+	}
+	else
+	{
+
+		if (height <= 2)
+		{
+
+			for (int i = 0; i < size; i++)
+			{
+				Position temp(getPosition().getX() + i, getPosition().getY());
+
+				graphics_manager.drawCh(temp, PLATFORM_THICK);
+			}
+
+
+		}
+		else
+		{
+			for (int j = 0; j < height; j++)
+			{
+				if (j == 0 || j == (height - 1))
+				{
+					for (int i = 0; i < size; i++)
+					{
+						Position temp(getPosition().getX() + i, getPosition().getY());
+
+						graphics_manager.drawCh(temp, PLATFORM_THICK);
+						//graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
+					}
+
+				}
+				else
+				{
+					Position temp(getPosition().getX(), getPosition().getY() + j);
+
+					graphics_manager.drawCh(temp, PLATFORM_THICK_WALL);
+					temp.setXY(getPosition().getX() + size - 1, getPosition().getY() + j);
+					graphics_manager.drawCh(temp, PLATFORM_THICK_WALL);
+
+				}
+
+
+
+			} // end j for
+
+			for (int i = 0; i < size; i++)
+			{
+				if (i <= size - 3)
+				{
+					Position temp(getPosition().getX() + i + 1, getPosition().getY() + height - 2);
+					graphics_manager.drawCh(temp, PLATFORM_THICK);
+				}
+				else
+				{
+					Position temp(getPosition().getX() + i, getPosition().getY() + height - 2);
+					//graphics_manager.drawCh(temp, PLATFORM_THIN);
+				}
+
+
+				//graphics_manager.drawCh(temp, PLATFORM_THIN);
+				//graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
+			}
+		} // end else
+
 
 	}
 

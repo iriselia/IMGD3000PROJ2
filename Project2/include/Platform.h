@@ -20,6 +20,7 @@ class Platform : public Object {
 
  public:
   Platform();
+  Platform(bool thickness, int sizee, int heightt, int x, int y);
   void draw(void);
   int eventHandler(Event *p_e);
 };
