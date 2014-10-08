@@ -27,7 +27,19 @@ Star::Star() {
 
 void Star::draw() {
   GraphicsManager &graphics_manager = GraphicsManager::getInstance();
-  graphics_manager.drawCh(getPosition(), STAR_CHAR); 
+  WorldManager &world_manager = WorldManager::getInstance();
+
+  for (int i = 0; i < 108; i++)
+  {
+	  //new Star;
+	 
+	  Position pos(world_manager.getBoundary().getHorizontal() + random() % 20,
+		  random() % world_manager.getBoundary().getVertical());
+	  setXVelocity(-1.0 / (random() % 10 + 1));
+
+	  graphics_manager.drawCh(pos, STAR_CHAR);
+
+  }
 }
 
 // Handle event.
@@ -45,9 +57,5 @@ int Star::eventHandler(Event *p_e) {
 
 // If Star moved off screen, move back to far right.
 void Star::out() {
-  WorldManager &world_manager = WorldManager::getInstance();
-  Position pos(world_manager.getBoundary().getHorizontal() + random()%20,
-	       random() % world_manager.getBoundary().getVertical());
-  setPosition(pos);
-  setXVelocity(-1.0 / (random()%10 + 1));
+ 
 }

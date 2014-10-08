@@ -81,14 +81,16 @@ void populateWorld(void)
 	// Spawn some Stars.
 	for (int i = 0; i <108; i++)
 	{
-		new Star;
+		//new Star;
 	}
 
+	new Star;
+	 
 	// Create hero.
 	new Hero;
 	new Trap;
 	new Platform(false, 50, 4, 0, 21);
-	new Platform(true, 30, 6, 10, 13);
+	new Platform(true, 30, 6, 17, 11);
 	auto a = new ViewObject;
 	a->setLocation(TOP_CENTER);
 	a->setViewString("Score");

@@ -49,7 +49,7 @@ Platform::Platform(bool thickness, int sizee, int heightt, int x, int y)
 	setSolidness(HARD);
 	setXVelocity(0.0);
 	setXVelocity(0.0);
-	setAltitude(2);	// Make them in the background.
+	setAltitude(0);	// Make them in the background.
 	WorldManager &world_manager = WorldManager::getInstance();
 	//Position pos(random() % world_manager.getBoundary().getHorizontal(),
 	//	random() % world_manager.getBoundary().getVertical());
