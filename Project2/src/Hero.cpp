@@ -83,6 +83,12 @@ int Hero::eventHandler(Event *p_e)
 		return 1;
 	}
 
+	if (p_e->getType() == DF_MOUSE_EVENT)
+	{
+		auto p_mouse_event = static_cast <EventMouse*> (p_e);
+		mouse(p_mouse_event);
+	}
+
 	if (p_e->getType() == DF_STEP_EVENT)
 	{
 		step();
@@ -135,6 +141,7 @@ void Hero::move(int dy)
 	{
 	case KEY_UP:       // up arrow
 		jump();
+		//new_pos.setY(y - 1);
 		break;
 	case KEY_DOWN:     // down arrow
 		new_pos.setY(y + 1);
@@ -246,5 +253,14 @@ void Hero::switchAnimation()
 	else if (m_state & HeroState::WalkRight)
 	{
 		setSprite(resMgr.getSprite("hero_walk_right"));
+	}
+}
+
+void Hero::mouse(EventMouse* mouse_event)
+{
+	// Mouse, m_event has values.
+	if (mouse_event->getMouseAction() == MouseActionList::LEFT_BUTTON_CLICK)
+	{
+		jump();
 	}
 }

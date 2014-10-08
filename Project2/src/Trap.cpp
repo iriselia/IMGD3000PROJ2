@@ -38,7 +38,6 @@ Trap::Trap()
 	Position pos(7, world_manager.getBoundary().getVertical() / 2);
 	setPosition(Position(25, 10));
 	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
-	world_manager.setViewFollowing(this);
 	//setYVelocity(0.25);
 	// Set firing variables.
 }

@@ -2,6 +2,7 @@
 //
 
 #include "EventKeyboard.h"
+#include "EventMouse.h"
 #include "EventCollision.h"
 #include "Object.h"
 
@@ -23,6 +24,7 @@ private:
 	int fire_countdown;
 	int nuke_count;
 	void kbd(EventKeyboard *keyboard_event);
+	void mouse(EventMouse* mouse_event);
 	void move(int dy);
 	void fire();
 	void step();
