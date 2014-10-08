@@ -67,6 +67,8 @@ bool boxIntersectsBox(Box A, Box B)
 
 	x_overlap |= BL <= AL && AL <= BR;
 	x_overlap |= BL <= AR && AR <= BR;
+	x_overlap |= AL <= BL && BL <= AR;
+	x_overlap |= AL <= BR && BR <= AR;
 
 	int AT = A.getCorner().getY();
 	int AB = A.getCorner().getY() + A.getVertical() - 1;
@@ -76,6 +78,8 @@ bool boxIntersectsBox(Box A, Box B)
 
 	y_overlap |= BT <= AT && AT <= BB;
 	y_overlap |= BT <= AB && AB <= BB;
+	y_overlap |= AT <= BT && BT <= AB;
+	y_overlap |= AT <= BB && BB <= AB;
 	//y_overlap |= 
 
 	return x_overlap && y_overlap;
