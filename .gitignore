@@ -32,8 +32,6 @@ build/
 CMakeFiles/
 CMakeCache.txt
 
-bin_debug
-
 *.vcxproj*
 *.opensdf
 *.sdf
@@ -44,4 +42,3 @@ bin_debug
 *.bsc
 *.pdb
 *.log
-*.pdb
