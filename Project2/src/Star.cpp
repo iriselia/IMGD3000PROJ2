@@ -35,7 +35,7 @@ void Star::draw() {
 	 
 	  Position pos(world_manager.getBoundary().getHorizontal() + random() % 20,
 		  random() % world_manager.getBoundary().getVertical());
-	  setXVelocity(-1.0 / (random() % 10 + 1));
+	  //setXVelocity(-1.0 / (random() % 10 + 1));
 
 	  graphics_manager.drawCh(pos, STAR_CHAR);
 

@@ -206,7 +206,8 @@ void WorldManager::draw()
 				Box temp_box = getWorldBox(itr.currentObject());
 
 				if (boxIntersectsBox(temp_box, view) || // Object in view,
-					dynamic_cast <ViewObject*> (itr.currentObject())) // or is ViewObject.
+					dynamic_cast <ViewObject*> (itr.currentObject()) || // or is ViewObject.
+					((itr.currentObject()->getType()) == "Star"))
 				{
 					itr.currentObject()->draw();
 
