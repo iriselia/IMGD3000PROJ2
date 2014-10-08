@@ -217,8 +217,8 @@ public:
 		}
 
 		// Moving this step, so figure out how far.
-		int spaces = floor(1 - x_velocity_countdown);
-		x_velocity_countdown = 1 + fmod(x_velocity_countdown, 1);
+		int spaces = (int)floor(1 - x_velocity_countdown);
+		x_velocity_countdown = (float)(1 + fmod(x_velocity_countdown, 1));
 			// Return number of spaces to move.
 		if (x_velocity > 0)
 		{
@@ -246,8 +246,8 @@ public:
 		}
 
 		// Moving this step, so figure out how far.
-		int spaces = floor(1 - y_velocity_countdown);
-		y_velocity_countdown = 1 + fmod(y_velocity_countdown, 1);
+		int spaces = (int)floor(1 - y_velocity_countdown);
+		y_velocity_countdown = (float)(1 + fmod(y_velocity_countdown, 1));
 		// Return number of spaces to move.
 		if (y_velocity > 0)
 		{

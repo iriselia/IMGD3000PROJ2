@@ -219,6 +219,7 @@ void Hero::jump()
 		//apply gravity
 		float currYVel = getYVelocity();
 		setYVelocity(-1.5f);
+		isJumping = true;
 	}
 }
 
@@ -228,7 +229,7 @@ void Hero::processCollision(EventCollision* _p_c)
 		(_p_c->getObject2()->getType() == "Platform"))
 	{
 		// TODO: where are we relative to the platform?
-
+		isJumping = false;
 		setYVelocity(.0f);
 	}
 }

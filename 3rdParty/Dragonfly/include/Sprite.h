@@ -75,7 +75,8 @@ public:
 	/// Return empty frame if out of range [0, frame_count].
 	Frame getFrame(int frame_number) const
 	{
-		if (0 < frame_number < frame_count)
+		if ((0 <= frame_number) &&
+			(frame_number < frame_count))
 		{
 			return frame[frame_number];
 		}
