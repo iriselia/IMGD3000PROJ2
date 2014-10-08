@@ -14,6 +14,7 @@
 #include "EventNuke.h"
 #include "Explosion.h"
 #include "GameOver.h"
+#include "EventCollision.h"
 #include "Hero.h"
 
 Hero::Hero()
@@ -85,6 +86,13 @@ int Hero::eventHandler(Event *p_e)
 	if (p_e->getType() == DF_STEP_EVENT)
 	{
 		step();
+		return 1;
+	}
+
+	if (p_e->getType() == DF_COLLISION_EVENT)
+	{
+		EventCollision *p_collision_event = static_cast <EventCollision *> (p_e);
+		processCollision(p_collision_event);
 		return 1;
 	}
 
@@ -211,5 +219,16 @@ void Hero::jump()
 		//apply gravity
 		float currYVel = getYVelocity();
 		setYVelocity(-1.5f);
+	}
+}
+
+void Hero::processCollision(EventCollision* _p_c)
+{
+	if ((_p_c->getObject1()->getType() == "Platform") ||
+		(_p_c->getObject2()->getType() == "Platform"))
+	{
+		// TODO: where are we relative to the platform?
+
+		setYVelocity(.0f);
 	}
 }

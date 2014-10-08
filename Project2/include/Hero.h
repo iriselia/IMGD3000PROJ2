@@ -18,7 +18,7 @@ class Hero : public Object {
   void step();
   void nuke();
   void jump();
-
+  void processCollision(EventCollision* _p_collision_event);
   bool isJumping;
 
  public:
