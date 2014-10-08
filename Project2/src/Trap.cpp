@@ -32,7 +32,7 @@ Trap::Trap()
 	auto& resMgr = ResourceManager::getInstance();
 	setSprite(resMgr.getSprite("trap"));
 	setSpriteSlowdown(4);
-
+	setAltitude(1);
 	// Set starting location.
 	WorldManager &world_manager = WorldManager::getInstance();
 	Position pos(7, world_manager.getBoundary().getVertical() / 2);

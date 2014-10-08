@@ -34,7 +34,7 @@ Hero::Hero()
 	setType("Hero");
 	auto& resMgr = ResourceManager::getInstance();
 	m_state = HeroState::WalkRight;
-	setSprite(resMgr.getSprite("hero_walk_right"));
+	setSprite(resMgr.getSprite("hero_jump"));
 	setSpriteSlowdown(4);
 
 	// Set starting location.
