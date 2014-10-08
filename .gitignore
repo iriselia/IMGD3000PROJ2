@@ -41,4 +41,5 @@ CMakeCache.txt
 *.ilk
 *.bsc
 *.pdb
-dragonfly.log
+*.log
+*.pdb
