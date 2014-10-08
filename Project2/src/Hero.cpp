@@ -139,19 +139,26 @@ void Hero::move(int dy)
 
 	switch (dy)
 	{
-	case KEY_UP:       // up arrow
+	case KEY_UP:
+	case 'w':
+	case 'W':
 		jump();
-		//new_pos.setY(y - 1);
 		break;
-	case KEY_DOWN:     // down arrow
+	case KEY_DOWN:
+	case 's':
+	case 'S':
 		new_pos.setY(y + 1);
 		break;
-	case KEY_RIGHT:       // right arrow
+	case KEY_RIGHT:
+	case 'd':
+	case 'D':
 		m_state &= ~HeroState::WalkLeft;
 		m_state |= HeroState::WalkRight;
 		new_pos.setX(x + 1);
 		break;
-	case KEY_LEFT:     // left arrow
+	case KEY_LEFT:
+	case 'a':
+	case 'A':
 		m_state &= ~HeroState::WalkRight;
 		m_state |= HeroState::WalkLeft;
 		new_pos.setX(x - 1);
