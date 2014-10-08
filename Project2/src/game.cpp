@@ -12,6 +12,7 @@
 #include "Star.h"
 #include "Saucer.h"
 #include "ViewObject.h"
+#include "Platform.h"
 
 // Function prototypes.
 void populateWorld(void);
@@ -78,6 +79,7 @@ void populateWorld(void)
 
 	// Create hero.
 	new Hero;
+	new Platform;
 	auto a = new ViewObject;
 	a->setLocation(TOP_CENTER);
 	a->setViewString("Score");

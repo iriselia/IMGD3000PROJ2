@@ -21,18 +21,19 @@
 
 Platform::Platform()
 {
-	LogManager &log_manager = LogManager::getInstance();
-	auto& resMgr = ResourceManager::getInstance();
-
-	setSprite(resMgr.getSprite("Platform"));
-	// Set object type.
 	setType("Platform");
-	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
-
-	// Set speed in vertical direction.
-	setXVelocity(-0.25);		// 1 space every 4 frames
-	setSpriteSlowdown(4);
-	//moveToStart();
+	isItThick = false;
+	size = 30;
+	setSolidness(HARD);
+	setXVelocity(0.0);
+	setXVelocity(0.0);
+	setAltitude(2);	// Make them in the background.
+	WorldManager &world_manager = WorldManager::getInstance();
+	//Position pos(random() % world_manager.getBoundary().getHorizontal(),
+	//	random() % world_manager.getBoundary().getVertical());
+	Position pos(0, 20);
+	setPosition(pos);
+	setBox(Box(Position(), 0, 0));
 
 
 
@@ -172,7 +173,21 @@ void Platform::moveToStart()
 
 void Platform::draw()
 {
-	Object::draw();
+	//Object::draw();
+
+	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
+
+	if (isItThick == false)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			Position temp(getPosition().getX() +i, getPosition().getY());
+
+			graphics_manager.drawCh(temp, PLATFORM_THIN);
+		}
+
+	}
+
 	//  	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
 	// 	Box box = getBox();
 	// 	std::stringstream curPos;
