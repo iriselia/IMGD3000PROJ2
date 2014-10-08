@@ -165,6 +165,10 @@ void Hero::fire()
 // Decrease fire restriction.
 void Hero::step()
 {
+	//apply gravity
+	float currYVel = getYVelocity();
+	setYVelocity(currYVel + 0.098f);
+
 	fire_countdown--;
 	if (fire_countdown < 0)
 		fire_countdown = 0;
