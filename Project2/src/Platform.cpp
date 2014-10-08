@@ -33,7 +33,7 @@ Platform::Platform()
 	//	random() % world_manager.getBoundary().getVertical());
 	Position pos(0, 20);
 	setPosition(pos);
-	setBox(Box(Position(), 0, 0));
+	setBox(Box(Position(), size, 1));
 
 
 
