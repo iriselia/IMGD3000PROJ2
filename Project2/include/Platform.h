@@ -6,12 +6,15 @@
 
 #define PLATFORM_THIN '_'
 #define PLATFORM_THICK '='
+#define PLATFORM_THIN_WALL '|'
+#define PLATFORM_THICK_WALL '"'
 
 class Platform : public Object {
 
  private:
 	 bool isItThick;
 	 int size;
+	 int height;
   void out();
   void hit(EventCollision *p_c);
 

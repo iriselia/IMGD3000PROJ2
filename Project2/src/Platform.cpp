@@ -23,7 +23,7 @@ Platform::Platform()
 {
 	setType("Platform");
 	isItThick = false;
-	size = 30;
+	size = 50;
 	setSolidness(HARD);
 	setXVelocity(0.0);
 	setXVelocity(0.0);
@@ -31,9 +31,10 @@ Platform::Platform()
 	WorldManager &world_manager = WorldManager::getInstance();
 	//Position pos(random() % world_manager.getBoundary().getHorizontal(),
 	//	random() % world_manager.getBoundary().getVertical());
-	Position pos(0, 20);
+	Position pos(0, 15);
 	setPosition(pos);
-	setBox(Box(Position(), size, 1));
+	height = 5;
+	setBox(Box(Position(), size, height));
 
 
 
@@ -179,12 +180,65 @@ void Platform::draw()
 
 	if (isItThick == false)
 	{
-		for (int i = 0; i < size; i++)
+		if (height <= 2)
 		{
-			Position temp(getPosition().getX() +i, getPosition().getY());
 
-			graphics_manager.drawCh(temp, PLATFORM_THIN);
+			for (int i = 0; i < size; i++)
+			{
+				Position temp(getPosition().getX() + i, getPosition().getY());
+
+				graphics_manager.drawCh(temp, PLATFORM_THIN);
+			}
+
+
 		}
+		else
+		{
+			for (int j = 0; j < height; j++)
+			{
+				if (j == 0 || j == (height - 1))
+				{
+					for (int i = 0; i < size; i++)
+					{
+						Position temp(getPosition().getX() + i, getPosition().getY());
+
+						graphics_manager.drawCh(temp, PLATFORM_THIN);
+						//graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
+					}
+
+				}
+				else
+				{
+					Position temp(getPosition().getX(), getPosition().getY()+j);
+
+					graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
+					temp.setXY(getPosition().getX() + size -1, getPosition().getY()+j);
+					graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
+
+				}
+				
+
+
+			} // end j for
+			
+			for (int i = 0; i < size; i++)
+			{
+				if (i <= size - 3)
+				{
+					Position temp(getPosition().getX() + i + 1, getPosition().getY() + height - 2);
+					graphics_manager.drawCh(temp, PLATFORM_THIN);
+				}
+				else
+				{
+					Position temp(getPosition().getX() + i  , getPosition().getY() + height - 2);
+					//graphics_manager.drawCh(temp, PLATFORM_THIN);
+				}
+				
+
+				//graphics_manager.drawCh(temp, PLATFORM_THIN);
+				//graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
+			}
+		} // end else
 
 	}
 
