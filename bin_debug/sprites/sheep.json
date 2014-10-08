@@ -1,0 +1,33 @@
+{
+    "speed": "100",
+    "loop": true,
+    "width": 8,
+    "height": 4,
+    "style": {
+        "family": "courier new",
+        "size": 12,
+        "weight": "normal",
+        "lineHeight": "120%"
+    },
+    "metadata": {
+        "frames": 4,
+        "duration": 4
+    },
+    "content": [
+        {
+            "text": "  __    \n<'. '>_9\n \\ ____\\\n   W  W ",
+            "repeat": 1,
+            "fontColor": "#000000",
+            "backgroundColor": "#ffffff"
+        },
+        {
+            "text": "  __    \n<'. '>_9\n \\ ____\\\n    W W "
+        },
+        {
+            "text": "  __    \n<'. '>_9\n \\ ____\\\n    WW "
+        },
+        {
+            "text": "  __    \n<'. '>_9\n \\ ____\\\n   W W "
+        }
+    ]
+}

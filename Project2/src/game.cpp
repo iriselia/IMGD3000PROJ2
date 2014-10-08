@@ -60,6 +60,11 @@ void loadResources()
 	hr |= resource_manager.loadSprite("sprites/explosion-spr.txt", "explosion");
 	hr |= resource_manager.loadSprite("sprites/trap-spr.txt", "trap");
 
+	//hero sprites
+	hr |= resource_manager.loadSprite("sprites/hero/hero-walk-left-spr.txt", "hero_walk_left");
+	hr |= resource_manager.loadSprite("sprites/hero/hero-walk-right-spr.txt", "hero_walk_right");
+	hr |= resource_manager.loadSprite("sprites/hero/hero-jump-spr.txt", "hero_jump");
+
 	if (hr)
 	{
 		auto& logger = LogManager::getInstance();

@@ -33,7 +33,8 @@ Hero::Hero()
 	// Set object type.
 	setType("Hero");
 	auto& resMgr = ResourceManager::getInstance();
-	setSprite(resMgr.getSprite("hero"));
+	m_state = HeroState::WalkRight;
+	setSprite(resMgr.getSprite("hero_walk_right"));
 	setSpriteSlowdown(4);
 
 	// Set starting location.
@@ -46,7 +47,6 @@ Hero::Hero()
 	// Set firing variables.
 	fire_slowdown = 15;
 	fire_countdown = fire_slowdown;
-	isJumping = false;
 
 	nuke_count = 1;
 }
@@ -107,18 +107,6 @@ void Hero::kbd(EventKeyboard *p_keyboard_event)
 
 	switch (p_keyboard_event->getKey())
 	{
-	case KEY_UP:       // up arrow
-		move(KEY_UP);
-		break;
-	case KEY_DOWN:     // down arrow
-		move(KEY_DOWN);
-		break;
-	case KEY_RIGHT:       // right arrow
-		move(KEY_RIGHT);
-		break;
-	case KEY_LEFT:     // left arrow
-		move(KEY_LEFT);
-		break;
 	case ' ':          // fire
 		fire();
 		break;
@@ -128,6 +116,9 @@ void Hero::kbd(EventKeyboard *p_keyboard_event)
 	case 'q':          // quit
 		world_manager.markForDelete(this);
 		break;
+	default:
+		move(p_keyboard_event->getKey());
+		//no break here
 	};
 
 	return;
@@ -149,12 +140,19 @@ void Hero::move(int dy)
 		new_pos.setY(y + 1);
 		break;
 	case KEY_RIGHT:       // right arrow
+		m_state &= ~HeroState::WalkLeft;
+		m_state |= HeroState::WalkRight;
 		new_pos.setX(x + 1);
 		break;
 	case KEY_LEFT:     // left arrow
+		m_state &= ~HeroState::WalkRight;
+		m_state |= HeroState::WalkLeft;
 		new_pos.setX(x - 1);
 		break;
+	default:
+		break;
 	}
+	switchAnimation();
 	// If stays on screen, allow move.
  	if ((new_pos.getY() > 0) &&
  		(new_pos.getY() < (world_manager.getBoundary().getVertical() - 1)) &&
@@ -214,12 +212,12 @@ void Hero::draw()
 
 void Hero::jump()
 {
-	if (!isJumping)
+	if (!(m_state & HeroState::Jump))
 	{
 		//apply gravity
 		float currYVel = getYVelocity();
 		setYVelocity(-1.5f);
-		isJumping = true;
+		m_state |= HeroState::Jump;
 	}
 }
 
@@ -229,7 +227,24 @@ void Hero::processCollision(EventCollision* _p_c)
 		(_p_c->getObject2()->getType() == "Platform"))
 	{
 		// TODO: where are we relative to the platform?
-		isJumping = false;
+		m_state &= ~HeroState::Jump;
 		setYVelocity(.0f);
+	}
+}
+
+void Hero::switchAnimation()
+{
+	auto& resMgr = ResourceManager::getInstance();
+	if (m_state & HeroState::Jump)
+	{
+		setSprite(resMgr.getSprite("hero_jump"));
+	}
+	else if (m_state & HeroState::WalkLeft)
+	{
+		setSprite(resMgr.getSprite("hero_walk_left"));
+	}
+	else if (m_state & HeroState::WalkRight)
+	{
+		setSprite(resMgr.getSprite("hero_walk_right"));
 	}
 }
