@@ -42,15 +42,15 @@ Platform::Platform()
 
 }
 
-Platform::Platform(bool thickness, int sizee, int heightt, int x, int y)
+Platform::Platform(bool thickness, int sizee, int heightt, int x, int y, float x_speed, float y_speed)
 {
 	setType("Platform");
 	isItThick = thickness;
 	size = sizee;
 	setSolidness(HARD);
-	setXVelocity(0.0);
-	move_countdown = 50;
-	setYVelocity(0.02);
+	setXVelocity(x_speed);
+	move_countdown = 10;
+	setYVelocity(y_speed);
 	setAltitude(0);	// Make them in the background.
 	WorldManager &world_manager = WorldManager::getInstance();
 	//Position pos(random() % world_manager.getBoundary().getHorizontal(),
@@ -114,8 +114,11 @@ void Platform::step(EventStep *p_s)
 	{
 
 		setXVelocity(getXVelocity() * -1);
-		move_countdown = 100;
+		setYVelocity(getYVelocity() * -1);
+		move_countdown = 50;
 	}
+
+	move_countdown--;
 }
 
 // If moved off left edge, move back to far right.
