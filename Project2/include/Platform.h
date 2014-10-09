@@ -3,6 +3,7 @@
 //
 
 #include "Object.h"
+#include "EventStep.h"
 
 #define PLATFORM_THIN '_'
 #define PLATFORM_THICK '='
@@ -15,6 +16,7 @@ class Platform : public Object {
 	 bool isItThick;
 	 int size;
 	 int height;
+	 int move_countdown;
   void out();
   void step(EventStep *p_s);
   void hit(EventCollision *p_c);

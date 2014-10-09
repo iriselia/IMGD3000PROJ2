@@ -18,7 +18,7 @@
 #include "Explosion.h"
 #include "Platform.h"
 #include "EventView.h"
-#include "EventStep.h"
+
 
 Platform::Platform()
 {
@@ -49,6 +49,7 @@ Platform::Platform(bool thickness, int sizee, int heightt, int x, int y)
 	size = sizee;
 	setSolidness(HARD);
 	setXVelocity(0.0);
+	move_countdown = 50;
 	setYVelocity(0.02);
 	setAltitude(0);	// Make them in the background.
 	WorldManager &world_manager = WorldManager::getInstance();
@@ -107,8 +108,14 @@ int Platform::eventHandler(Event *p_e)
 
 void Platform::step(EventStep *p_s)
 {
+	// move left and right
 
+	if (move_countdown < 0)
+	{
 
+		setXVelocity(getXVelocity() * -1);
+		move_countdown = 100;
+	}
 }
 
 // If moved off left edge, move back to far right.
