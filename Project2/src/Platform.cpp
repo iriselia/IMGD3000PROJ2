@@ -18,6 +18,7 @@
 #include "Explosion.h"
 #include "Platform.h"
 #include "EventView.h"
+#include "EventStep.h"
 
 Platform::Platform()
 {
@@ -26,7 +27,7 @@ Platform::Platform()
 	size = 50;
 	setSolidness(HARD);
 	setXVelocity(0.0);
-	setXVelocity(0.0);
+	setYVelocity(0.0);
 	setAltitude(2);	// Make them in the background.
 	WorldManager &world_manager = WorldManager::getInstance();
 	//Position pos(random() % world_manager.getBoundary().getHorizontal(),
@@ -48,7 +49,7 @@ Platform::Platform(bool thickness, int sizee, int heightt, int x, int y)
 	size = sizee;
 	setSolidness(HARD);
 	setXVelocity(0.0);
-	setXVelocity(0.0);
+	setYVelocity(0.02);
 	setAltitude(0);	// Make them in the background.
 	WorldManager &world_manager = WorldManager::getInstance();
 	//Position pos(random() % world_manager.getBoundary().getHorizontal(),
@@ -95,8 +96,19 @@ int Platform::eventHandler(Event *p_e)
 		//new Platform;
 	}
 
+	if (p_e->getType() == DF_STEP_EVENT)
+	{
+		EventStep *p_step_event = static_cast <EventStep *> (p_e);
+		step(p_step_event);
+	}
 	// If get here, have ignored this event.
 	return 0;
+}
+
+void Platform::step(EventStep *p_s)
+{
+
+
 }
 
 // If moved off left edge, move back to far right.

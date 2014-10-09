@@ -16,6 +16,7 @@ class Platform : public Object {
 	 int size;
 	 int height;
   void out();
+  void step(EventStep *p_s);
   void hit(EventCollision *p_c);
 
  public:
