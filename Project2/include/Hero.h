@@ -28,6 +28,7 @@ private:
 	void move(int dy);
 	void fire();
 	void step();
+	void out();
 	void nuke();
 	void jump();
 	void processCollision(EventCollision* _p_collision_event);

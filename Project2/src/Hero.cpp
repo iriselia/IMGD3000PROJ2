@@ -15,6 +15,7 @@
 #include "Explosion.h"
 #include "GameOver.h"
 #include "EventCollision.h"
+#include "EventOut.h"
 #include "Hero.h"
 
 Hero::Hero()
@@ -92,6 +93,12 @@ int Hero::eventHandler(Event *p_e)
 	if (p_e->getType() == DF_STEP_EVENT)
 	{
 		step();
+		return 1;
+	}
+
+	if (p_e->getType() == DF_OUT_EVENT)
+	{
+		out();
 		return 1;
 	}
 
@@ -271,4 +278,10 @@ void Hero::mouse(EventMouse* mouse_event)
 	{
 		jump();
 	}
+}
+
+void Hero::out()
+{
+	WorldManager &world_manager = WorldManager::getInstance();
+	world_manager.markForDelete(this);
 }

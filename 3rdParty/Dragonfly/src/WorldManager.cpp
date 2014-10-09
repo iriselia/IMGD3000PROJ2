@@ -127,8 +127,8 @@ bool inBound(Box box)
 
 	hr |= pos.getX() > x;
 	hr |= pos.getY() > y;
-	hr |= (pos.getX() + box.getVertical()) > 0;
-	hr |= (pos.getY() + box.getHorizontal()) > 0;
+	hr |= (pos.getX() + box.getVertical()) < 0;
+	hr |= (pos.getY() + box.getHorizontal()) < 0;
 
 	return hr ? false : true;
 }
