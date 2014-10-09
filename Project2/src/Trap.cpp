@@ -100,12 +100,12 @@ void Trap::draw()
 void Trap::activate(EventCollision* _eventCollision)
 {
 	auto a = _eventCollision->getObject1();
-	if (a->getType() == "Hero")
+	// If Hero, mark both objects for destruction.
+	if (((_eventCollision->getObject1()->getType()) == "Hero") ||
+		((_eventCollision->getObject2()->getType()) == "Hero"))
 	{
-		exit(0);
-	}
-	else
-	{
-		exit(1);
+		WorldManager &world_manager = WorldManager::getInstance();
+		world_manager.markForDelete(_eventCollision->getObject1());
+		world_manager.markForDelete(_eventCollision->getObject2());
 	}
 }

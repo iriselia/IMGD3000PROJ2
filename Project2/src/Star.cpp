@@ -17,7 +17,7 @@ Star::Star()
 	setType("Star");
 	setSolidness(SPECTRAL);
 	setXVelocity(-1.0 / (random() % 10 + 1));
-	setXVelocity(0.0f);
+	setXVelocity(-1.0 / (random() % 10 + 1));
 	setAltitude(0);	// Make them in the background.
 	WorldManager &world_manager = WorldManager::getInstance();
 	Position pos(random() % world_manager.getBoundary().getHorizontal(),
@@ -31,7 +31,7 @@ void Star::draw()
 	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
 	WorldManager &world_manager = WorldManager::getInstance();
 
-
+	srand((int)this);
   for (int i = 0; i < 108; i++)
   {
 		Position pos(

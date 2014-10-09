@@ -54,6 +54,11 @@ void ViewObject::setLocation(ViewObjectLocation new_location)
 	case TOP_RIGHT:
 		p.setXY(worldMgr.getView().getHorizontal() * 6 / 6, 1);
 		break;
+
+	case CENTER_CENTER:
+		p.setXY(worldMgr.getView().getHorizontal() * 3 / 6,
+			worldMgr.getView().getVertical() * 3 / 6);
+		break;
 	}
 
 	// Shift, as needed, based on border.
