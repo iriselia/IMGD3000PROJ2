@@ -89,8 +89,8 @@ void populateWorld(void)
 	// Create hero.
 	new Hero;
 	new Trap;
-	new Platform(false, 50, 4, 0, 21);
-	new Platform(true, 30, 6, 17, 11);
+	new Platform(false, 50, 4, 0, 21, 0.0, 0.4);
+	new Platform(true, 30, 6, 17, 11, 0.2, 0.);
 	auto a = new ViewObject;
 	a->setLocation(TOP_CENTER);
 	a->setViewString("Score");

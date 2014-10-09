@@ -23,7 +23,7 @@ class Platform : public Object {
 
  public:
   Platform();
-  Platform(bool thickness, int sizee, int heightt, int x, int y);
+  Platform(bool thickness, int sizee, int heightt, int x, int y, float x_speed, float y_speed);
   void draw(void);
   int eventHandler(Event *p_e);
 };
