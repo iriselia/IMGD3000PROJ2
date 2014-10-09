@@ -31,10 +31,9 @@ void Star::draw()
 	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
 	WorldManager &world_manager = WorldManager::getInstance();
 
-	for (int i = 0; i < 108; i++)
-	{
-		//new Star;
 
+  for (int i = 0; i < 108; i++)
+  {
 		Position pos(
 			random() % world_manager.getBoundary().getHorizontal(),
 			random() % world_manager.getBoundary().getVertical());
