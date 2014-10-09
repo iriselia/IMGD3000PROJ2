@@ -180,7 +180,8 @@ void Hero::fire()
 	if (fire_countdown > 0)
 		return;
 	fire_countdown = fire_slowdown;
-	new Bullet(getPosition());
+	int bulletVel = (m_state & HeroState::WalkRight) ? 1 : -1;
+	new Bullet(getPosition(), bulletVel);
 }
 
 // Decrease fire restriction.

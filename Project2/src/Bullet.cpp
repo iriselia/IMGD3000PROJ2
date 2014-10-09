@@ -13,11 +13,11 @@
 #include "Bullet.h"
 #include "Saucer.h"
 
-Bullet::Bullet(Position hero_pos) {
+Bullet::Bullet(Position hero_pos, int velocity) {
 
   // Set object properties.
   setType("Bullet");
-  setXVelocity(1);		// move 1 space right every frame
+  setXVelocity(velocity);		// move 1 space right every frame
 
   auto& resMgr = ResourceManager::getInstance();
   setSprite(resMgr.getSprite("bullet"));
@@ -26,7 +26,7 @@ Bullet::Bullet(Position hero_pos) {
   setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
 
   // Set starting location, based on hero's position passed in.
-  Position pos(hero_pos.getX()+3, hero_pos.getY());
+  Position pos(hero_pos.getX()+ 3 * velocity, hero_pos.getY());
   setPosition(pos);
 }
 
