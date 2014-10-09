@@ -14,7 +14,7 @@ class Bullet : public Object {
   void hit(EventCollision *p_c);
 
  public:
-  Bullet(Position hero_pos);
+	 Bullet(Position hero_pos, int velocity);
   int eventHandler(Event *p_e);
   void draw();
 };
