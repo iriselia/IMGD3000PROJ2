@@ -111,7 +111,7 @@ int GraphicsManager::startUp()
 	hr = (int)(initscr());
 	if (!hr) printf("curses failed to initialize.\n");
 
-	resize_term(70, 80);
+	resize_term(40, 200);
 
 	//Create windows
 	int x, y;
