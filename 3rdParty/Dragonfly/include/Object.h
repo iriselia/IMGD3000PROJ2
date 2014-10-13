@@ -73,6 +73,7 @@ private:
 	float y_velocity;           ///< Vertical speed in spaces per game step.
 	float y_velocity_countdown; ///< Countdown to vertical movement.
 	bool modified[DF_ATTR_COUNT]; ///< Mod. attrib. since serialize().
+	bool onPlatform;
 
 public:
 	/// Construct Object. Set default parameters and
@@ -89,6 +90,15 @@ public:
 		id = new_id;
 	}
 
+	bool getOnPlataform()
+	{
+		return onPlatform;
+	}
+
+	void setOnPlataform(bool onn)
+	{
+		onPlatform = onn;
+	}
 	/// Get Object id.
 	int getId() const
 	{

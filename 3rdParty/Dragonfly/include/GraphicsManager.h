@@ -95,15 +95,7 @@ public:
 				Position pos(
 					world_pos.getX() - x_offset + x,
 					world_pos.getY() - y_offset + y);
-				if (str[y * frame.getWidth() + x] == transparent)
-				{
-					drawCh(pos, ' ', color);
-
-				}
-				else
-				{
-					drawCh(pos, str[y * frame.getWidth() + x], color);
-				}
+				drawCh(pos, str[y * frame.getWidth() + x], color);
 			}
 		}
 
