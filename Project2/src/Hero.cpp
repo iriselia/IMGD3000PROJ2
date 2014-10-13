@@ -266,7 +266,7 @@ void Hero::processCollision(EventCollision* _p_c)
 			
 			*/
 			this->setOnPlataform(thisistrue);
-			this->setXVelocity(_p_c->getObject1()->getXVelocity());
+			//this->setXVelocity(_p_c->getObject1()->getXVelocity());
 			already = true;
 		}
 
@@ -279,7 +279,7 @@ void Hero::processCollision(EventCollision* _p_c)
 			world_manager.moveObject(this, newpos);
 			*/
 			this->setOnPlataform(thisistrue);
-			this->setXVelocity(_p_c->getObject2()->getXVelocity());
+			//this->setXVelocity(_p_c->getObject2()->getXVelocity());
 		}
 
 	}
