@@ -81,7 +81,7 @@ Object::Object()
 	solidness = HARD;
 	sprite_center = true;
 	p_sprite = nullptr;
-
+	onPlatform = false;
 	auto & worldManager = WorldManager::getInstance();
 	worldManager.insertObject(this);
 }

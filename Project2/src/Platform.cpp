@@ -133,7 +133,7 @@ void Platform::out()
 	//moveToStart();
 
 	// Spawn new Saucer to make the game get harder.
-	new Platform;
+	//new Platform;
 
 }
 

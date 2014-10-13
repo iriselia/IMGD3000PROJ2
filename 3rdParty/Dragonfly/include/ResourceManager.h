@@ -74,7 +74,7 @@ public:
 	/// Unload Sprite with indicated label.
 	/// Return 0 if ok, else -1.
 	int unloadSprite(string label);
-
+	
 	/// Find Sprite with indicated label.
 	/// Return pointer to it if found, else NULL.
 	Sprite *getSprite(string label) const
