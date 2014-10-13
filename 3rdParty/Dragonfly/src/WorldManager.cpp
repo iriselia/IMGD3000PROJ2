@@ -118,10 +118,11 @@ ObjectList WorldManager::isCollision(Object *p_o, Position where) const
 bool inBound(Box box)
 {
 	auto& gfxManager = GraphicsManager::getInstance();
+	auto& worldMgr = WorldManager::getInstance();
 
 	int hr = false;
-	int x = gfxManager.getVertical();
-	int y = gfxManager.getHorizontal();
+	int x = worldMgr.getBoundary().getVertical();
+	int y = worldMgr.getBoundary().getHorizontal();
 
 	Position pos = box.getCorner();
 

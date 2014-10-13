@@ -37,6 +37,7 @@ Hero::Hero()
 	m_state = HeroState::WalkRight;
 	setSprite(resMgr.getSprite("hero_jump"));
 	setSpriteSlowdown(4);
+	setAltitude(3);
 
 	// Set starting location.
 	WorldManager &world_manager = WorldManager::getInstance();

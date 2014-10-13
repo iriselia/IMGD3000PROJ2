@@ -44,17 +44,14 @@ Trap::Trap()
 
 Trap::~Trap()
 {
-	// Make big explosion.
-	for (int i = -8; i <= 8; i += 5)
+	if (isActive())
 	{
-		for (int j = -5; j <= 5; j += 3)
-		{
-			Position temp_pos = this->getPosition();
-			temp_pos.setX(this->getPosition().getX() + i);
-			temp_pos.setY(this->getPosition().getY() + j);
-			Explosion *p_explosion = new Explosion;
-			p_explosion->setPosition(temp_pos);
-		}
+
+		Position temp_pos = this->getPosition();
+		temp_pos.setX(this->getPosition().getX());
+		temp_pos.setY(this->getPosition().getY());
+		Explosion *p_explosion = new Explosion;
+		p_explosion->setPosition(temp_pos);
 	}
 }
 
@@ -81,8 +78,7 @@ int Trap::eventHandler(Event *p_e)
 
 // Decrease fire restriction.
 void Trap::step()
-{
-}
+{}
 
 void Trap::draw()
 {
@@ -92,7 +88,7 @@ void Trap::draw()
 	std::stringstream curPos;
 	curPos << "Hero Position: " << getPosition().getX() << " , " << getPosition().getY() << " ";
 	curPos << "Height: " << box.getVertical() << " , " << "Width: " << box.getHorizontal();
-/*	graphics_manager.drawString(Position(0, 24), curPos.str(), LEFT_JUSTIFIED);*/
+	/*	graphics_manager.drawString(Position(0, 24), curPos.str(), LEFT_JUSTIFIED);*/
 	//   GraphicsManager &graphics_manager = GraphicsManager::getInstance();
 	//   graphics_manager.drawCh(getPosition(), HERO_CHAR, COLOR_BLUE); 
 }

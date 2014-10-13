@@ -45,16 +45,24 @@ GameOver::~GameOver()
 {
 	WorldManager &world_manager = WorldManager::getInstance();
 
+	world_manager.setViewPosition(Position(0, 0));
+
 	// Remove Saucers and ViewObjects, re-activate GameStart.
 	ObjectList object_list = world_manager.getAllObjects();
 	ObjectListIterator i(&object_list);
 	for (i.first(); !i.isDone(); i.next())
 	{
 		Object *p_o = i.currentObject();
-		if (p_o->getType() == "Saucer" || p_o->getType() == "ViewObject")
+		if (p_o->getType() != "GameStart")
+		{
 			world_manager.markForDelete(p_o);
+			p_o->setActive(false);
+		}
 		if (p_o->getType() == "GameStart")
+		{
+//			p_o->setPosition(viewToWorld(p_o->getPosition()));
 			p_o->setActive(true);
+		}
 	}
 }
 
