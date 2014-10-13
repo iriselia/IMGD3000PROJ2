@@ -163,7 +163,7 @@ int WorldManager::moveObject(Object *p_o, Position where)
 				{
 					do_move = false;
 				}
-				if (p_o->getOnPlataform() == true || p_temp_o->getOnPlataform() == true)
+				//if (p_o->getOnPlataform() == true || p_temp_o->getOnPlataform() == true)
 					//do_move = true;
 				itr.next();
 			}

@@ -77,17 +77,17 @@ int GameStart::eventHandler(Event *p_e)
 void GameStart::start()
 {
 
-	// Create hero.
-	new Hero;
-	new Trap;
-	new Platform(false, 50, 4, 0, 21, 0.0, 0.4);
-	new Platform(true, 30, 6, 17, 11, 0.2, 0.);
-	new Star;
-	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
-	//   p_vo->setLocation(TOP_LEFT);
-	//   p_vo->setViewString("Nukes");
-	//   p_vo->setValue(1);
-	//   p_vo->setColor(COLOR_YELLOW);
+  // Create hero.
+  new Hero;
+  new Trap;
+  new Platform(false, 50, 4, 0, 21, 0.0, 0.4);
+  new Platform(true, 30, 6, 17, 11, 0.2, 0.0);
+  new Star;
+//   ViewObject *p_vo = new ViewObject; // Count of nukes.
+//   p_vo->setLocation(TOP_LEFT);
+//   p_vo->setViewString("Nukes");
+//   p_vo->setValue(1);
+//   p_vo->setColor(COLOR_YELLOW);
 
 	// When the game starts, become inactive.
 	setActive(false);
