@@ -4,6 +4,7 @@
 
 #include "Object.h"
 #include "EventStep.h"
+#include "EventCollision.h"
 
 #define PLATFORM_THIN '_'
 #define PLATFORM_THICK '='
