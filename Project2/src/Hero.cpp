@@ -270,10 +270,10 @@ void Hero::processCollision(EventCollision* _p_c)
 			*/
 			this->setOnPlataform(thisistrue);
 			//this->setXVelocity(this->getXVelocity() + _p_c->getObject1()->getXVelocity());
-			already = true;
+			alreadyX = true;
 		}
 
-		if (this->getPosition().getY() >= _p_c->getObject2()->getPosition().getY() && already == false)
+		if (this->getPosition().getY() >= _p_c->getObject2()->getPosition().getY() && alreadyX == false)
 		{/*
 			int x = _p_c->getObject2()->getXVelocityStep() ;
 			int y = _p_c->getObject2()->getYVelocityStep() ;
@@ -298,10 +298,10 @@ void Hero::processCollision(EventCollision* _p_c)
 		 */
 			this->setOnPlataform(thisistrue);
 			//this->setXVelocity(this->getXVelocity() + _p_c->getObject1()->getXVelocity());
-			already = true;
+			alreadyY = true;
 		}
 
-		if (this->getPosition().getY() >= _p_c->getObject2()->getPosition().getY() && already == false)
+		if (this->getPosition().getY() >= _p_c->getObject2()->getPosition().getY() && alreadyY == false)
 		{/*
 		 int x = _p_c->getObject2()->getXVelocityStep() ;
 		 int y = _p_c->getObject2()->getYVelocityStep() ;
