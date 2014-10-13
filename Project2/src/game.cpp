@@ -8,10 +8,7 @@
 #include "ResourceManager.h"
 
 // Game includes.
-#include "Hero.h"
-#include "Star.h"
-#include "Saucer.h"
-#include "Trap.h"
+#include "GameStart.h"
 #include "ViewObject.h"
 #include "Platform.h"
 
@@ -77,29 +74,6 @@ void loadResources()
 // Populate world with some objects.
 void populateWorld(void)
 {
-
-	// Spawn some Stars.
-	for (int i = 0; i <108; i++)
-	{
-		//new Star;
-	}
-
-	new Star;
-	 
-	// Create hero.
-	new Hero;
-	new Trap;
-	new Platform(false, 50, 4, 0, 21, 0.4, 0.0);
-	//new Platform(true, 30, 6, 17, 11, 0.2, 0.0);
-	auto a = new ViewObject;
-	a->setLocation(TOP_CENTER);
-	a->setViewString("Score");
-	a->setValue(0);
-
-	// Spawn some saucers to shoot.
-	for (int i = 0; i < 16; i++)
-	{
-		//new Saucer;
-	}
+	new GameStart;
 	return;
 }
