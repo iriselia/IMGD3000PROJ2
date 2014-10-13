@@ -54,6 +54,7 @@ bool positionsIntersect(Position p1, Position p2)
 	{
 		return false;
 	}
+
 }
 
 bool boxIntersectsBox(Box A, Box B)
@@ -161,6 +162,8 @@ int WorldManager::moveObject(Object *p_o, Position where)
 				{
 					do_move = false;
 				}
+				if (p_o->getOnPlataform() == true || p_temp_o->getOnPlataform() == true)
+					//do_move = true;
 				itr.next();
 			}
 			if (!do_move)
@@ -243,6 +246,7 @@ void WorldManager::update()
 			auto oldPos = itr.currentObject()->getPosition();
 			auto newPos = Position(oldPos.getX() + x, oldPos.getY() + y);
 			moveObject(itr.currentObject(), newPos);
+
 		}
 		itr.next();
 	}
