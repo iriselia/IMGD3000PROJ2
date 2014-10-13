@@ -28,27 +28,31 @@ string Object::serialize(bool all /*= false*/)
 
 void Object::draw()
 {
-	auto& gfxMgr = GraphicsManager::getInstance();
-	int index = getSpriteIndex();
-	int count = getSpriteSlowdownCount();
-	gfxMgr.drawFrame(pos, p_sprite->getFrame(index), isCentered(), this->sprite_transparency, p_sprite->getColor());
+	if (isActive())
+	{
+		auto& gfxMgr = GraphicsManager::getInstance();
+		int index = getSpriteIndex();
+		int count = getSpriteSlowdownCount();
+		gfxMgr.drawFrame(pos, p_sprite->getFrame(index), isCentered(), this->sprite_transparency, p_sprite->getColor());
 
-	if (sprite_slowdown == 0)
-	{
-		return;
-	}
-	else
-	{
-		count++;
-		if (count >= sprite_slowdown)
+		if (sprite_slowdown == 0)
 		{
-			count = 0;
-			++index %= (p_sprite->getFrameCount());
+			return;
 		}
+		else
+		{
+			count++;
+			if (count >= sprite_slowdown)
+			{
+				count = 0;
+				++index %= (p_sprite->getFrameCount());
+			}
+		}
+
+		setSpriteSlowdownCount(count);
+		setSpriteIndex(index);
 	}
 
-	setSpriteSlowdownCount(count);
-	setSpriteIndex(index);
 }
 
 int Object::unregisterInterest(string event_type)
