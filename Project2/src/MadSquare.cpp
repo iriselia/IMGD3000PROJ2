@@ -1,5 +1,5 @@
 //
-// Trap.cpp
+// MadSquare.cpp
 //
 
 // Engine includes.
@@ -12,9 +12,9 @@
 // Game includes.
 #include "Explosion.h"
 #include "EventCollision.h"
-#include "Trap.h"
+#include "MadSquare.h"
 
-Trap::Trap()
+MadSquare::MadSquare()
 {
 
 	LogManager &log_manager = LogManager::getInstance();
@@ -28,21 +28,21 @@ Trap::Trap()
 #endif
 
 	// Set object type.
-	setType("Trap");
+	setType("MadSquare");
 	auto& resMgr = ResourceManager::getInstance();
-	setSprite(resMgr.getSprite("trap"));
+	setSprite(resMgr.getSprite("madsquare"));
 	setSpriteSlowdown(4);
 	setAltitude(1);
 	// Set starting location.
 	WorldManager &world_manager = WorldManager::getInstance();
 	Position pos(7, world_manager.getBoundary().getVertical() / 2);
-	setPosition(Position(25, 10));
+	setPosition(Position(45, 10));
 	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
 	//setYVelocity(0.25);
 	// Set firing variables.
 }
 
-Trap::~Trap()
+MadSquare::~MadSquare()
 {
 	if (isActive())
 	{
@@ -57,7 +57,7 @@ Trap::~Trap()
 
 // Handle event.
 // Return 0 if ignored, else 1.
-int Trap::eventHandler(Event *p_e)
+int MadSquare::eventHandler(Event *p_e)
 {
 	if (p_e->getType() == DF_STEP_EVENT)
 	{
@@ -77,10 +77,10 @@ int Trap::eventHandler(Event *p_e)
 }
 
 // Decrease fire restriction.
-void Trap::step()
+void MadSquare::step()
 {}
 
-void Trap::draw()
+void MadSquare::draw()
 {
 	Object::draw();
 	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
@@ -93,7 +93,7 @@ void Trap::draw()
 	//   graphics_manager.drawCh(getPosition(), HERO_CHAR, COLOR_BLUE); 
 }
 
-void Trap::activate(EventCollision* _eventCollision)
+void MadSquare::activate(EventCollision* _eventCollision)
 {
 	auto a = _eventCollision->getObject1();
 	// If Hero, mark both objects for destruction.

@@ -1,4 +1,4 @@
-// Hero.h
+// Trap.h
 //
 
 #include "EventKeyboard.h"

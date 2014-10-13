@@ -16,6 +16,7 @@
 #include "Hero.h"
 #include "Saucer.h"
 #include "Trap.h"
+#include "MadSquare.h"
 #include "Platform.h"
 #include "Star.h"
 
@@ -80,6 +81,7 @@ void GameStart::start()
   // Create hero.
   new Hero;
   new Trap;
+  new MadSquare;
   new Platform(false, 50, 4, 0, 21, 0.3, 0.0);
   new Platform(true, 30, 6, 17, 11, 0.2, 0.0);
   new Star;

@@ -1,0 +1,15 @@
+frames 2
+width 7
+height 4
+color blue
+\0xXx0/
+x     =
+=     x
+/x0x0x\
+end
+/x0X0x\
+=     x
+x     =
+\0xXx0/
+end
+eof

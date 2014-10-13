@@ -240,6 +240,7 @@ void Platform::draw()
 				{
 					for (int i = 0; i < size; i++)
 					{
+
 						Position temp(getPosition().getX() + i, getPosition().getY());
 
 						graphics_manager.drawCh(temp, PLATFORM_THIN);
