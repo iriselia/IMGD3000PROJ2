@@ -248,7 +248,8 @@ void Hero::processCollision(EventCollision* _p_c)
 {
 	WorldManager &world_manager = WorldManager::getInstance();
 
-	bool already = false;
+	bool alreadyX = false;
+	bool alreadyY = false;
 	static bool thisistrue = true;
 	if ((_p_c->getObject1()->getType() == "Platform") ||
 		(_p_c->getObject2()->getType() == "Platform"))
@@ -256,6 +257,8 @@ void Hero::processCollision(EventCollision* _p_c)
 		// TODO: where are we relative to the platform?
 		m_state &= ~HeroState::Jump;
 		setYVelocity(.0f);
+
+		// X movement
 		if (this->getPosition().getY() >= _p_c->getObject1()->getPosition().getY() )
 		{/*
 			int x = _p_c->getObject1()->getXVelocityStep() ;
@@ -266,7 +269,7 @@ void Hero::processCollision(EventCollision* _p_c)
 			
 			*/
 			this->setOnPlataform(thisistrue);
-			//this->setXVelocity(_p_c->getObject1()->getXVelocity());
+			//this->setXVelocity(this->getXVelocity() + _p_c->getObject1()->getXVelocity());
 			already = true;
 		}
 
@@ -279,8 +282,37 @@ void Hero::processCollision(EventCollision* _p_c)
 			world_manager.moveObject(this, newpos);
 			*/
 			this->setOnPlataform(thisistrue);
-			//this->setXVelocity(_p_c->getObject2()->getXVelocity());
+			//this->setXVelocity(this->getXVelocity() + _p_c->getObject2()->getXVelocity());
 		}
+
+		// Y movement
+
+		if (this->getPosition().getX() >= _p_c->getObject1()->getPosition().getY())
+		{/*
+		 int x = _p_c->getObject1()->getXVelocityStep() ;
+		 int y = _p_c->getObject1()->getYVelocityStep() ;
+		 Position oldpos = this->getPosition();
+		 Position newpos(oldpos.getX() - x, oldpos.getY() - y);
+		 world_manager.moveObject(this, newpos);
+
+		 */
+			this->setOnPlataform(thisistrue);
+			//this->setXVelocity(this->getXVelocity() + _p_c->getObject1()->getXVelocity());
+			already = true;
+		}
+
+		if (this->getPosition().getY() >= _p_c->getObject2()->getPosition().getY() && already == false)
+		{/*
+		 int x = _p_c->getObject2()->getXVelocityStep() ;
+		 int y = _p_c->getObject2()->getYVelocityStep() ;
+		 Position oldpos = this->getPosition();
+		 Position newpos(oldpos.getX() + x, oldpos.getY() + y);
+		 world_manager.moveObject(this, newpos);
+		 */
+			this->setOnPlataform(thisistrue);
+			//this->setXVelocity(this->getXVelocity() + _p_c->getObject2()->getXVelocity());
+		}
+
 
 	}
 }
