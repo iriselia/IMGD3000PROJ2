@@ -11,8 +11,10 @@
 
 // Game includes.
 #include "Explosion.h"
+#include "Bullet.h"
 #include "EventCollision.h"
 #include "MadSquare.h"
+
 
 MadSquare::MadSquare()
 {
@@ -40,6 +42,8 @@ MadSquare::MadSquare()
 	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
 	//setYVelocity(0.25);
 	// Set firing variables.
+	fire_slowdown = 15;
+	fire_countdown = fire_slowdown;
 }
 
 MadSquare::~MadSquare()
@@ -55,6 +59,15 @@ MadSquare::~MadSquare()
 	}
 }
 
+void MadSquare::fire()
+{
+	if (fire_countdown > 0)
+		return;
+	fire_countdown = fire_slowdown;
+	int bulletVel = 3;
+	new Bullet(getPosition(), bulletVel);
+
+}
 // Handle event.
 // Return 0 if ignored, else 1.
 int MadSquare::eventHandler(Event *p_e)
