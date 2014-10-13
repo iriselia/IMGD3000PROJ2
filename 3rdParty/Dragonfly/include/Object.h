@@ -156,7 +156,6 @@ public:
 	int setActive(bool active = true)
 	{
 		is_active = active;
-		return 0;
 	}
 
 	/// Return activeness of Object.  Objects not active are not acted upon
