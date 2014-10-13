@@ -31,7 +31,7 @@ void Object::draw()
 	auto& gfxMgr = GraphicsManager::getInstance();
 	int index = getSpriteIndex();
 	int count = getSpriteSlowdownCount();
-	gfxMgr.drawFrame(pos, p_sprite->getFrame(index), isCentered(), this->sprite_transparency, p_sprite->getColor());
+	gfxMgr.drawFrame(pos, p_sprite->getFrame(index), isCentered(), false, p_sprite->getColor());
 
 	if (sprite_slowdown == 0)
 	{
@@ -81,7 +81,7 @@ Object::Object()
 	solidness = HARD;
 	sprite_center = true;
 	p_sprite = nullptr;
-
+	onPlatform = false;
 	auto & worldManager = WorldManager::getInstance();
 	worldManager.insertObject(this);
 }
