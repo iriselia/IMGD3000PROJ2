@@ -33,7 +33,7 @@ void Object::draw()
 		auto& gfxMgr = GraphicsManager::getInstance();
 		int index = getSpriteIndex();
 		int count = getSpriteSlowdownCount();
-		gfxMgr.drawFrame(pos, p_sprite->getFrame(index), isCentered(), this->sprite_transparency, p_sprite->getColor());
+		gfxMgr.drawFrame(pos, p_sprite->getFrame(index), isCentered(), getTransparency(), p_sprite->getColor());
 
 		if (sprite_slowdown == 0)
 		{
