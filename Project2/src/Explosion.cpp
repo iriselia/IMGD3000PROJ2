@@ -63,18 +63,5 @@ void Explosion::step()
 
 void Explosion::draw()
 {
-	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
-	graphics_manager.drawCh(getPosition(), '*', COLOR_RED);
-
-	if (time_to_live < 4)
-	{
-		Position p1(getPosition().getX() - 1, getPosition().getY() - 1);
-		Position p2(getPosition().getX() + 1, getPosition().getY() - 1);
-		Position p3(getPosition().getX() - 1, getPosition().getY() + 1);
-		Position p4(getPosition().getX() + 1, getPosition().getY() + 1);
-		graphics_manager.drawCh(p1, '\\', COLOR_RED);
-		graphics_manager.drawCh(p2, '/', COLOR_RED);
-		graphics_manager.drawCh(p3, '/', COLOR_RED);
-		graphics_manager.drawCh(p4, '\\', COLOR_RED);
-	}
+	Object::draw();
 }

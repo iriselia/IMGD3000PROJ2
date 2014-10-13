@@ -131,7 +131,7 @@ int GraphicsManager::startUp()
 	if (hr) printf("curses failed to initialize leaveok.\n");
 
 	auto& worldManager = WorldManager::getInstance();
-	worldManager.setBoundary(Box(Position(0, 0), x, y));
+	worldManager.setBoundary(Box(Position(0, 0), 200, 200));
 
 	//Set colors
 	if (has_colors())
