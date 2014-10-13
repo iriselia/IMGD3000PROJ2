@@ -58,8 +58,14 @@ void Bullet::out() {
 // If bullet hits Saucer, mark Saucer and bullet for deletion.
 void Bullet::hit(EventCollision *p_c) {
   WorldManager &world_manager = WorldManager::getInstance();
-  world_manager.markForDelete(p_c->getObject1());
-  world_manager.markForDelete(p_c->getObject2());
+  if ((p_c->getObject1()->getType() != "Platform"))
+  {
+	  world_manager.markForDelete(p_c->getObject1());
+  }
+  if ((p_c->getObject2()->getType() != "Platform"))
+  {
+	  world_manager.markForDelete(p_c->getObject2());
+  }
 }
 
 void Bullet::draw() {
