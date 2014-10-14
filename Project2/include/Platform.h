@@ -18,6 +18,8 @@ class Platform : public Object {
 	 int size;
 	 int height;
 	 int move_countdown;
+	 float desiredXVelocity;
+	 float desiredYVelocity;
   void out();
   void step(EventStep *p_s);
   void hit(EventCollision *p_c);
@@ -27,4 +29,8 @@ class Platform : public Object {
   Platform(bool thickness, int sizee, int heightt, int x, int y, float x_speed, float y_speed);
   void draw(void);
   int eventHandler(Event *p_e);
+  int getHeight()
+  {
+	  return height;
+  }
 };

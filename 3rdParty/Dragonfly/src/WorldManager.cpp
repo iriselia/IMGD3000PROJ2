@@ -163,8 +163,10 @@ int WorldManager::moveObject(Object *p_o, Position where)
 				{
 					do_move = false;
 				}
-				//if (p_o->getOnPlataform() == true || p_temp_o->getOnPlataform() == true)
+				if (p_o->getType() == "Platform")
+				{
 					//do_move = true;
+				}
 				itr.next();
 			}
 			if (!do_move)
@@ -242,12 +244,22 @@ void WorldManager::update()
 		int x = itr.currentObject()->getXVelocityStep();
 		int y = itr.currentObject()->getYVelocityStep();
 
+		if (x)
+		{
+			itr.currentObject()->lastXDisplacement = x;
+
+		}
+		if (y)
+		{
+			itr.currentObject()->lastYDisplacement = y;
+		}
+
 		if (x || y)
 		{
 			auto oldPos = itr.currentObject()->getPosition();
 			auto newPos = Position(oldPos.getX() + x, oldPos.getY() + y);
 			moveObject(itr.currentObject(), newPos);
-			itr.currentObject()->FloorVelocityCountdown();
+			itr.currentObject()->ResetVelocityCountdown();
 		}
 		itr.next();
 	}
