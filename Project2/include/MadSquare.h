@@ -9,10 +9,13 @@ private:
 
 	void step();
 	void activate(EventCollision* _eventCollision);
-
+	//void fire();
+	int fire_slowdown;
+	int fire_countdown;
 public:
 	MadSquare();
 	~MadSquare();
+	void fire();
 	int eventHandler(Event *p_e);
 	void draw();
 };
