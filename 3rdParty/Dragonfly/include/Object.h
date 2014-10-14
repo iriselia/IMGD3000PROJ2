@@ -117,6 +117,7 @@ public:
 		return type;
 	}
 
+	
 	///< Return True if Object is HARD or SOFT, else False.
 	bool isSolid() const
 	{
@@ -337,7 +338,7 @@ public:
 	/// Draw single Sprite Frame.
 	/// Drawing accounts for: centering, slowdown, advancing Sprite Frame.
 	virtual void draw();
-
+	virtual void specialAction();
 	/// Set Sprite name (in ResourceManager) for Object.
 	void setSpriteName(string new_name)
 	{

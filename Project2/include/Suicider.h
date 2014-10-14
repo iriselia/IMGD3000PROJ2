@@ -12,11 +12,13 @@ private:
 	//void fire();
 	int fire_slowdown;
 	int fire_countdown;
+	bool suicide;
 public:
 	Suicider();
 	Suicider(int x, int y);
 	~Suicider();
 	void fire();
+	void specialAction();
 	int eventHandler(Event *p_e);
 	void draw();
 };

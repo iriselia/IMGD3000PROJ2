@@ -44,6 +44,7 @@ Suicider::Suicider()
 	// Set firing variables.
 	fire_slowdown = 15;
 	fire_countdown = fire_slowdown;
+	suicide = false;
 }
 
 Suicider::Suicider(int x, int y)
@@ -73,6 +74,7 @@ Suicider::Suicider(int x, int y)
 	// Set firing variables.
 	fire_slowdown = 60;
 	fire_countdown = fire_slowdown;
+	suicide = false;
 
 }
 Suicider::~Suicider()
@@ -129,6 +131,19 @@ void Suicider::step()
 	if (fire_countdown < 0)
 		fire_countdown = 0;
 
+	if (this->getPosition().getX() <= -15)
+	{
+
+		WorldManager &world_manager = WorldManager::getInstance();
+		world_manager.markForDelete(this);
+	}
+}
+
+void Suicider::specialAction()
+{
+	
+	setXVelocity(3);
+	
 
 }
 
