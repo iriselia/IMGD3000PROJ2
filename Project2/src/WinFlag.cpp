@@ -14,6 +14,7 @@
 #include "EventCollision.h"
 #include "WinFlag.h"
 #include "GameWin.h"
+#include "GameOverFlag.h"
 
 WinFlag::WinFlag()
 {
@@ -71,6 +72,7 @@ WinFlag::WinFlag(int x, int y)
 
 WinFlag::~WinFlag()
 {
+	new GameOverFlag;
 	if (isActive())
 	{
 
