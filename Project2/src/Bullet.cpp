@@ -14,13 +14,13 @@
 #include "Suicider.h"
 #include "Saucer.h"
 
-Bullet::Bullet(Position hero_pos, int velocityX, int velocityY, int type) {
+Bullet::Bullet(Position hero_pos, int velocityX, int velocityY, int typee) {
 
 	// Set object properties.
 	setType("Bullet");
 	setXVelocity(velocityX);// move 1 space right every frame
 	setYVelocity(velocityY);
-
+	type = typee;
 	auto& resMgr = ResourceManager::getInstance();
 	if (type == 1)
 	setSprite(resMgr.getSprite("bullet1"));
@@ -55,7 +55,7 @@ Bullet::Bullet(Position hero_pos, int velocityX) {
 	setType("Bullet");
 	setXVelocity(velocityX);// move 1 space right every frame
 	//setYVelocity(velocityY);
-
+	type = 0;
 	auto& resMgr = ResourceManager::getInstance();
 	setSprite(resMgr.getSprite("bullet"));
 	setSpriteSlowdown(4);
@@ -109,11 +109,11 @@ void Bullet::hit(EventCollision *p_c) {
 	  world_manager.markForDelete(p_c->getObject2());
   }
 
-  if ((p_c->getObject1()->getType() == "Suicider"))
+  if ((p_c->getObject1()->getType() == "Suicider" && type !=1 ))
   {
 	  p_c->getObject1()->specialAction();
   }
-  if ((p_c->getObject2()->getType() != "Suicider"))
+  if ((p_c->getObject2()->getType() == "Suicider" && type != 1))
   {
 	  p_c->getObject2()->specialAction();
   }

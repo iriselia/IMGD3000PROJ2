@@ -127,14 +127,15 @@ int Suicider::eventHandler(Event *p_e)
 void Suicider::step()
 {
 	//fire();
+	WorldManager &world_manager = WorldManager::getInstance();
 	fire_countdown--;
 	if (fire_countdown < 0)
 		fire_countdown = 0;
 
-	if (this->getPosition().getX() <= -15)
+	if (this->getPosition().getX() <= 5)
 	{
 
-		WorldManager &world_manager = WorldManager::getInstance();
+		
 		world_manager.markForDelete(this);
 	}
 }
@@ -142,7 +143,7 @@ void Suicider::step()
 void Suicider::specialAction()
 {
 	
-	setXVelocity(3);
+	setXVelocity(-2);
 	
 
 }

@@ -12,12 +12,13 @@ enum direction{
 class Bullet : public Object {
 
  private:
+	 int type;
   void out();
   void hit(EventCollision *p_c);
 
  public:
 	 Bullet(Position hero_pos, int velocityX);
-	 Bullet(Position hero_pos, int velocityX, int velocityY, int type);
+	 Bullet(Position hero_pos, int velocityX, int velocityY, int typee);
   int eventHandler(Event *p_e);
   void draw();
 };
