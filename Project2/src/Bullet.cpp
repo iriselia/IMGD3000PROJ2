@@ -102,9 +102,10 @@ void Bullet::hit(EventCollision *p_c) {
   WorldManager &world_manager = WorldManager::getInstance();
   if ((p_c->getObject1()->getType() != "Platform" && p_c->getObject1()->getType() != "Suicider"))
   {
+
 	  world_manager.markForDelete(p_c->getObject1());
   }
-  if ((p_c->getObject2()->getType() != "Platform" && p_c->getObject2()->getType() != "Suicider"))
+  if ((p_c->getObject2()->getType() != "Platform" && p_c->getObject2()->getType() != "Suicider" ))
   {
 	  world_manager.markForDelete(p_c->getObject2());
   }
