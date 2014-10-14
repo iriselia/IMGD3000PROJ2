@@ -124,6 +124,8 @@ void Platform::out()
 
 // If saucer and player collide, mark both for deletion.
 ///*
+static float prevXCD = 2.0f;
+
 void Platform::hit(EventCollision *p_c)
 {
 	// If Bullet ...
@@ -135,9 +137,7 @@ void Platform::hit(EventCollision *p_c)
 		Explosion *p_explosion = new Explosion;
 		p_explosion->setPosition(this->getPosition());
 	}
-
-	// If Hero, mark both objects for destruction.
-	if (((p_c->getObject1()->getType()) == "Hero") ||
+	else if (((p_c->getObject1()->getType()) == "Hero") ||
 		((p_c->getObject2()->getType()) == "Hero"))
 	{
 		auto heroPtr = (Object*)nullptr;
@@ -158,43 +158,59 @@ void Platform::hit(EventCollision *p_c)
 		auto platformPos = platformPtr->getPosition();
 		int xOffset = 0;
 		int yOffset = 0;
-		if (heroPtr->getPosition().getY() < this->getPosition().getY())
+		if (heroPtr->getPosition().getY() <= (this->getPosition().getY() + this->getHeight()))
 		{
 			if (getXVelocity() > 0)
 			{
-				xOffset = 1;
+				xOffset = this->lastXDisplacement;
 			}
 			else if (getXVelocity() < 0)
 			{
-				xOffset = -1;
+				xOffset = this->lastXDisplacement;
 			}
 		}
 
 		if (getYVelocity() > 0)
 		{
+			//only adjust hero position when platform goes up
 			//yOffset = 1;
 		}
 		else if (getYVelocity() < 0)
 		{
-			yOffset = -1;
+			yOffset = -this->lastYDisplacement;
 		}
+		float xCD;
+		float yCD;
+		bool xChanged;
 		if (xOffset || yOffset)
 		{
-			heroPos = Position(heroPos.getX() + xOffset, heroPos.getY());
-			platformPos = Position(platformPos.getX() + xOffset, platformPos.getY());
-			if (platformPtr->getYVelocityCountdown() <= 0)
+			heroPos = Position(heroPos.getX(), heroPos.getY());
+			platformPos = Position(platformPos.getX(), platformPos.getY());
+			xCD = platformPtr->getXVelocityCountdown();
+			xChanged = xCD > prevXCD;
+			yCD = platformPtr->getYVelocityCountdown();
+
+			heroPos.setX(heroPos.getX() + xOffset);
+			platformPos.setX(platformPos.getX());
+			if (!xChanged)
+			{
+				heroPos.setX(heroPos.getX() - xOffset);
+				//platformPos.setX(platformPos.getX() - xOffset);
+			}
+			prevXCD = xCD;
+
+			if (yCD <= 0)
 			{
 				heroPos.setY(heroPos.getY() + yOffset);
 				platformPos.setY(platformPos.getY() + yOffset);
 			}
-
 		}
 		if (yOffset > 0)
 		{
 			world_manager.moveObject(platformPtr, platformPos);
 			world_manager.moveObject(heroPtr, heroPos);
 		}
-		else
+		else if (yOffset < 0)
 		{
 			ObjectList list = world_manager.isCollision(heroPtr, heroPos);
 			if (!list.isEmpty())
@@ -207,6 +223,36 @@ void Platform::hit(EventCollision *p_c)
 				world_manager.moveObject(platformPtr, platformPos);
 			}
 		}
+
+		if (xOffset)
+		{
+			ObjectList list = world_manager.isCollision(heroPtr, heroPos);
+			if (list.isEmpty())
+			{
+				world_manager.moveObject(heroPtr, heroPos);
+				world_manager.moveObject(platformPtr, platformPos);
+			}
+			else
+			{
+				world_manager.moveObject(platformPtr, platformPos);
+				list = world_manager.isCollision(heroPtr, heroPos);
+				if (list.isEmpty())
+				{
+					world_manager.moveObject(heroPtr, heroPos);
+
+				}
+				else
+				{
+					world_manager.markForDelete(heroPtr);
+				}
+			}
+		}
+	}
+	else
+	{
+		// monster, trap, etc. will stop the platform completely
+		//setXVelocityCountdown(getXVelocityCountdown() + fabs(getXVelocity()));
+		//setYVelocityCountdown(getYVelocityCountdown() + fabs(getYVelocity()));
 	}
 
 }

@@ -212,7 +212,7 @@ public:
 		return y_velocity;
 	}
 
-	void FloorVelocityCountdown()
+	void ResetVelocityCountdown()
 	{
 		x_velocity_countdown = (float)(1 + fmod(x_velocity_countdown, 1));
 		y_velocity_countdown = (float)(1 + fmod(y_velocity_countdown, 1));
@@ -283,6 +283,16 @@ public:
 	float getXVelocityCountdown()
 	{
 		return  x_velocity_countdown;
+	}
+
+	void setYVelocityCountdown( float _in)
+	{
+		y_velocity_countdown = _in;
+	}
+
+	void setXVelocityCountdown(float _in)
+	{
+		x_velocity_countdown = _in;
 	}
 
 	/// Set "no soft" setting of Object (true - cannot move onto SOFT Objects).
@@ -438,4 +448,7 @@ public:
 
 	/// Return true if any attribute modified since last serialize.
 	virtual bool isModified() const;
+
+	int lastXDisplacement;
+	int lastYDisplacement;
 };
