@@ -212,6 +212,12 @@ public:
 		return y_velocity;
 	}
 
+	void FloorVelocityCountdown()
+	{
+		x_velocity_countdown = (float)(1 + fmod(x_velocity_countdown, 1));
+		y_velocity_countdown = (float)(1 + fmod(y_velocity_countdown, 1));
+	}
+
 	/// Perform 1 step of velocity in horizontal direction.
 	/// Return horizontal distance moved this step.
 	int getXVelocityStep()
@@ -229,8 +235,8 @@ public:
 
 		// Moving this step, so figure out how far.
 		int spaces = (int)floor(1 - x_velocity_countdown);
-		x_velocity_countdown = (float)(1 + fmod(x_velocity_countdown, 1));
-			// Return number of spaces to move.
+
+		// Return number of spaces to move.
 		if (x_velocity > 0)
 		{
 			return spaces;
@@ -258,7 +264,6 @@ public:
 
 		// Moving this step, so figure out how far.
 		int spaces = (int)floor(1 - y_velocity_countdown);
-		y_velocity_countdown = (float)(1 + fmod(y_velocity_countdown, 1));
 		// Return number of spaces to move.
 		if (y_velocity > 0)
 		{
@@ -268,6 +273,16 @@ public:
 		{
 			return -spaces;
 		}
+	}
+
+	float getYVelocityCountdown()
+	{
+		return  y_velocity_countdown;
+	}
+
+	float getXVelocityCountdown()
+	{
+		return  x_velocity_countdown;
 	}
 
 	/// Set "no soft" setting of Object (true - cannot move onto SOFT Objects).

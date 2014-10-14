@@ -78,23 +78,8 @@ int Platform::eventHandler(Event *p_e)
 	if (p_e->getType() == DF_COLLISION_EVENT)
 	{
 		EventCollision *p_collision_event = static_cast <EventCollision *> (p_e);
-		//hit(p_collision_event);
+		hit(p_collision_event);
 		return 1;
-	}
-
-	if (p_e->getType() == NUKE_EVENT)
-	{
-
-		// Create explosion.
-		//Explosion *p_explosion = new Explosion;
-		//p_explosion->setPosition(this->getPosition());
-
-		// Delete self.
-		//WorldManager &world_manager = WorldManager::getInstance();
-		//world_manager.markForDelete(this);
-
-		// Platforms appear stay around perpetually
-		//new Platform;
 	}
 
 	if (p_e->getType() == DF_STEP_EVENT)
@@ -138,15 +123,9 @@ void Platform::out()
 }
 
 // If saucer and player collide, mark both for deletion.
-/*
+///*
 void Platform::hit(EventCollision *p_c)
 {
-
-	// If Saucer on Saucer, ignore.
-	if ((p_c->getObject1()->getType() == "Platform") &&
-		(p_c->getObject2()->getType() == "Platform"))
-		return;
-
 	// If Bullet ...
 	if ((p_c->getObject1()->getType() == "Bullet") ||
 		(p_c->getObject2()->getType() == "Bullet"))
@@ -155,59 +134,114 @@ void Platform::hit(EventCollision *p_c)
 		// Create an explosion.
 		Explosion *p_explosion = new Explosion;
 		p_explosion->setPosition(this->getPosition());
-
-		auto& worldMgr = WorldManager::getInstance();
-		EventView ev;
-		ev.setDelta(true);
-		ev.setValue(10);
-		ev.setTag("Score");
-		worldMgr.onEvent(&ev);
-		// Saucers appear stay around perpetually.
-		new Platform;
 	}
 
 	// If Hero, mark both objects for destruction.
 	if (((p_c->getObject1()->getType()) == "Hero") ||
 		((p_c->getObject2()->getType()) == "Hero"))
 	{
+		auto heroPtr = (Object*)nullptr;
+		auto platformPtr = (Object*)nullptr;
+		if ((p_c->getObject1()->getType()) == "Hero")
+		{
+			heroPtr = p_c->getObject1();
+			platformPtr = p_c->getObject2();
+		}
+		else
+		{
+			heroPtr = p_c->getObject2();
+			platformPtr = p_c->getObject1();
+
+		}
 		WorldManager &world_manager = WorldManager::getInstance();
-		world_manager.markForDelete(p_c->getObject1());
-		world_manager.markForDelete(p_c->getObject2());
+		auto heroPos = heroPtr->getPosition();
+		auto platformPos = platformPtr->getPosition();
+		int xOffset = 0;
+		int yOffset = 0;
+		if (heroPtr->getPosition().getY() < this->getPosition().getY())
+		{
+			if (getXVelocity() > 0)
+			{
+				xOffset = 1;
+			}
+			else if (getXVelocity() < 0)
+			{
+				xOffset = -1;
+			}
+		}
+
+		if (getYVelocity() > 0)
+		{
+			//yOffset = 1;
+		}
+		else if (getYVelocity() < 0)
+		{
+			yOffset = -1;
+		}
+		if (xOffset || yOffset)
+		{
+			heroPos = Position(heroPos.getX() + xOffset, heroPos.getY());
+			platformPos = Position(platformPos.getX() + xOffset, platformPos.getY());
+			if (platformPtr->getYVelocityCountdown() <= 0)
+			{
+				heroPos.setY(heroPos.getY() + yOffset);
+				platformPos.setY(platformPos.getY() + yOffset);
+			}
+
+		}
+		if (yOffset > 0)
+		{
+			world_manager.moveObject(platformPtr, platformPos);
+			world_manager.moveObject(heroPtr, heroPos);
+		}
+		else
+		{
+			ObjectList list = world_manager.isCollision(heroPtr, heroPos);
+			if (!list.isEmpty())
+			{
+				world_manager.markForDelete(heroPtr);
+			}
+			else
+			{
+				world_manager.moveObject(heroPtr, heroPos);
+				world_manager.moveObject(platformPtr, platformPos);
+			}
+		}
 	}
 
 }
 
-*/
+//*/
 
 
 // Move saucer to starting location on right side of screen.
 /*
 void Platform::moveToStart()
 {
-	WorldManager &world_manager = WorldManager::getInstance();
-	Position temp_pos;
+WorldManager &world_manager = WorldManager::getInstance();
+Position temp_pos;
 
-	// Get world boundaries.
-	int world_horiz = world_manager.getBoundary().getHorizontal() / 2;
-	int world_vert = world_manager.getBoundary().getVertical();
+// Get world boundaries.
+int world_horiz = world_manager.getBoundary().getHorizontal() / 2;
+int world_vert = world_manager.getBoundary().getVertical();
 
-	// x is off right side of screen.
-	temp_pos.setX(world_horiz + random() % world_horiz + 3);
+// x is off right side of screen.
+temp_pos.setX(world_horiz + random() % world_horiz + 3);
 
-	// y is in vertical range.
-	temp_pos.setY(random() % (world_vert - 4) + 4);
+// y is in vertical range.
+temp_pos.setY(random() % (world_vert - 4) + 4);
 
-	// If collision, move right slightly until empty space.
-	ObjectList collision_list = world_manager.isCollision(this, temp_pos);
-	while (!collision_list.isEmpty())
-	{
-		temp_pos.setX(temp_pos.getX() + 1);
-		temp_pos.setY(temp_pos.getX() + 1);
-		collision_list = world_manager.isCollision(this, temp_pos);
-	}
+// If collision, move right slightly until empty space.
+ObjectList collision_list = world_manager.isCollision(this, temp_pos);
+while (!collision_list.isEmpty())
+{
+temp_pos.setX(temp_pos.getX() + 1);
+temp_pos.setY(temp_pos.getX() + 1);
+collision_list = world_manager.isCollision(this, temp_pos);
+}
 
-	world_manager.moveObject(this, temp_pos);
-	//world_manager.moveObject(this, Position(40, 2));
+world_manager.moveObject(this, temp_pos);
+//world_manager.moveObject(this, Position(40, 2));
 }
 
 */
@@ -250,18 +284,18 @@ void Platform::draw()
 				}
 				else
 				{
-					Position temp(getPosition().getX(), getPosition().getY()+j);
+					Position temp(getPosition().getX(), getPosition().getY() + j);
 
 					graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
-					temp.setXY(getPosition().getX() + size -1, getPosition().getY()+j);
+					temp.setXY(getPosition().getX() + size - 1, getPosition().getY() + j);
 					graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
 
 				}
-				
+
 
 
 			} // end j for
-			
+
 			for (int i = 0; i < size; i++)
 			{
 				if (i <= size - 3)
@@ -271,10 +305,10 @@ void Platform::draw()
 				}
 				else
 				{
-					Position temp(getPosition().getX() + i  , getPosition().getY() + height - 2);
+					Position temp(getPosition().getX() + i, getPosition().getY() + height - 2);
 					//graphics_manager.drawCh(temp, PLATFORM_THIN);
 				}
-				
+
 
 				//graphics_manager.drawCh(temp, PLATFORM_THIN);
 				//graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);

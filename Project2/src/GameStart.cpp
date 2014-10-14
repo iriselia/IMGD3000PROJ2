@@ -82,7 +82,7 @@ void GameStart::start()
   new Hero;
   new Trap;
   new MadSquare;
-  new Platform(false, 50, 4, 0, 21, 0.3, 0.0);
+  new Platform(false, 50, 4, 0, 21, 0.0, 0.1);
   new Platform(true, 30, 6, 17, 11, 0.2, 0.0);
   new Star;
 //   ViewObject *p_vo = new ViewObject; // Count of nukes.

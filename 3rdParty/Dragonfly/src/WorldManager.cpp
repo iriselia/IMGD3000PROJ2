@@ -247,7 +247,7 @@ void WorldManager::update()
 			auto oldPos = itr.currentObject()->getPosition();
 			auto newPos = Position(oldPos.getX() + x, oldPos.getY() + y);
 			moveObject(itr.currentObject(), newPos);
-
+			itr.currentObject()->FloorVelocityCountdown();
 		}
 		itr.next();
 	}
