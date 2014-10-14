@@ -18,6 +18,7 @@
 #include "Trap.h"
 #include "MadSquare.h"
 #include "Platform.h"
+#include "Suicider.h"
 #include "Star.h"
 
 GameStart::GameStart()

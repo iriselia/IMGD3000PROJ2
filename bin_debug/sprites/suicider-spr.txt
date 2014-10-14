@@ -1,0 +1,23 @@
+frames 9
+width 11
+height 1
+color yellow
+[]_________
+end
+[]---------
+end
+[O]---------
+end
+[O]-_-_-_-_
+end
+[O]_-_-_-_-
+end
+[O]-_-_-_-_
+end
+[O]_-_-_-_-
+end
+[O]--------
+end
+[]---------
+end
+eof
