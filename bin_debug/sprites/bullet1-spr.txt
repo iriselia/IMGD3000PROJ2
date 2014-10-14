@@ -1,0 +1,11 @@
+frames 2
+width 3
+height 2
+color cyan
+ _ 
+|_|
+end
+[.]
+   
+end
+eof

@@ -13,23 +13,64 @@
 #include "Bullet.h"
 #include "Saucer.h"
 
-Bullet::Bullet(Position hero_pos, int velocity) {
+Bullet::Bullet(Position hero_pos, int velocityX, int velocityY, int type) {
 
-  // Set object properties.
-  setType("Bullet");
-  setXVelocity(velocity);		// move 1 space right every frame
+	// Set object properties.
+	setType("Bullet");
+	setXVelocity(velocityX);// move 1 space right every frame
+	setYVelocity(velocityY);
 
-  auto& resMgr = ResourceManager::getInstance();
-  setSprite(resMgr.getSprite("bullet"));
-  setSpriteSlowdown(4);
-  // Set object type.
-  setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
+	auto& resMgr = ResourceManager::getInstance();
+	if (type == 1)
+	setSprite(resMgr.getSprite("bullet1"));
+	else
+		setSprite(resMgr.getSprite("bullet1"));
 
-  // Set starting location, based on hero's position passed in.
-  Position pos(hero_pos.getX()+ 3 * velocity, hero_pos.getY());
-  setPosition(pos);
+	setSpriteSlowdown(4);
+	// Set object type.
+	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
+	Position pos1;
+
+	// Set starting location, based on hero's position passed in.
+	if (velocityY == 0)
+	{
+
+		Position pos(hero_pos.getX() + 3 * velocityX, hero_pos.getY());
+		pos1 = pos;
+	}
+	if (velocityX == 0 )
+	{
+		Position pos(hero_pos.getX(), hero_pos.getY() + 3 * velocityY);
+		pos1 = pos;
+	}
+	
+  
+  setPosition(pos1);
 }
 
+Bullet::Bullet(Position hero_pos, int velocityX) {
+
+	// Set object properties.
+	setType("Bullet");
+	setXVelocity(velocityX);// move 1 space right every frame
+	//setYVelocity(velocityY);
+
+	auto& resMgr = ResourceManager::getInstance();
+	setSprite(resMgr.getSprite("bullet"));
+	setSpriteSlowdown(4);
+	// Set object type.
+	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
+
+	// Set starting location, based on hero's position passed in.
+	//if (velocityY == 0 && velocityX != 0)
+		Position pos(hero_pos.getX() + 3 * velocityX, hero_pos.getY());
+	//if (velocityY != 0 && velocityX == 0)
+	//	Position pos(hero_pos.getX(), hero_pos.getY() + 3 * velocityY);
+	//if (velocityY != 0 && velocityX != 0)
+	//	Position pos(hero_pos.getX() + 3 * velocityX, hero_pos.getY() + 3 * velocityY);
+
+	setPosition(pos);
+}
 // Handle event.
 // Return 0 if ignored, else 1.
 int Bullet::eventHandler(Event *p_e) {

@@ -1,7 +1,7 @@
 frames 2
 width 7
 height 4
-color blue
+color magenta
 \0xXx0/
 x     =
 =     x

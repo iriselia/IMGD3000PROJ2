@@ -59,6 +59,7 @@ void loadResources()
 	hr |= resource_manager.loadSprite("sprites/gamestart-spr.txt", "gamestart");
 	hr |= resource_manager.loadSprite("sprites/gameover-spr.txt", "gameover");
 	hr |= resource_manager.loadSprite("sprites/madsquare-spr.txt", "madsquare");
+	hr |= resource_manager.loadSprite("sprites/bullet1-spr.txt", "bullet1");
 
 	//hero sprites
 	hr |= resource_manager.loadSprite("sprites/hero/hero-walk-left-spr.txt", "hero_walk_left");

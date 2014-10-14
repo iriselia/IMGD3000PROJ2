@@ -15,6 +15,7 @@ class Trap : public Object {
 
  public:
   Trap();
+  Trap(int x, int y);
   ~Trap();
   int eventHandler(Event *p_e);
   void draw();

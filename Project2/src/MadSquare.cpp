@@ -23,7 +23,7 @@ MadSquare::MadSquare()
 
 #ifdef REGISTER
 	// Player controls hero, so register with keyboard.
-	registerInterest(DF_KEYBOARD_EVENT);
+	
 
 	// Need to update fire rate control each step.
 	registerInterest(DF_STEP_EVENT);
@@ -46,6 +46,35 @@ MadSquare::MadSquare()
 	fire_countdown = fire_slowdown;
 }
 
+MadSquare::MadSquare(int x, int y)
+{
+	LogManager &log_manager = LogManager::getInstance();
+
+#ifdef REGISTER
+	// Player controls hero, so register with keyboard.
+	
+
+	// Need to update fire rate control each step.
+	registerInterest(DF_STEP_EVENT);
+#endif
+
+	// Set object type.
+	setType("MadSquare");
+	auto& resMgr = ResourceManager::getInstance();
+	setSprite(resMgr.getSprite("madsquare"));
+	setSpriteSlowdown(4);
+	setAltitude(1);
+	// Set starting location.
+	WorldManager &world_manager = WorldManager::getInstance();
+	Position pos(7, world_manager.getBoundary().getVertical() / 2);
+	setPosition(Position(x, y));
+	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
+	//setYVelocity(0.25);
+	// Set firing variables.
+	fire_slowdown = 60;
+	fire_countdown = fire_slowdown;
+
+}
 MadSquare::~MadSquare()
 {
 	if (isActive())
@@ -64,9 +93,12 @@ void MadSquare::fire()
 	if (fire_countdown > 0)
 		return;
 	fire_countdown = fire_slowdown;
-	int bulletVel = 3;
-	new Bullet(getPosition(), bulletVel);
-
+	int bulletVelX = 1;
+	int bulletVelY = 0;
+	new Bullet(getPosition(), bulletVelX, bulletVelY,1);
+	new Bullet(getPosition(), -1, bulletVelY,1);
+	new Bullet(getPosition(), 0, 1,1);
+	new Bullet(getPosition(), 0, -1, 1);
 }
 // Handle event.
 // Return 0 if ignored, else 1.
@@ -91,7 +123,14 @@ int MadSquare::eventHandler(Event *p_e)
 
 // Decrease fire restriction.
 void MadSquare::step()
-{}
+{
+	fire();
+	fire_countdown--;
+	if (fire_countdown < 0)
+		fire_countdown = 0;
+
+	
+}
 
 void MadSquare::draw()
 {
