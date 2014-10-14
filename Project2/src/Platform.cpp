@@ -128,16 +128,7 @@ static float prevXCD = 2.0f;
 
 void Platform::hit(EventCollision *p_c)
 {
-	// If Bullet ...
-	if ((p_c->getObject1()->getType() == "Bullet") ||
-		(p_c->getObject2()->getType() == "Bullet"))
-	{
-
-		// Create an explosion.
-		Explosion *p_explosion = new Explosion;
-		p_explosion->setPosition(this->getPosition());
-	}
-	else if (((p_c->getObject1()->getType()) == "Hero") ||
+	if (((p_c->getObject1()->getType()) == "Hero") ||
 		((p_c->getObject2()->getType()) == "Hero"))
 	{
 		auto heroPtr = (Object*)nullptr;
@@ -177,7 +168,7 @@ void Platform::hit(EventCollision *p_c)
 		}
 		else if (getYVelocity() < 0)
 		{
-			yOffset = -this->lastYDisplacement;
+			yOffset = this->lastYDisplacement;
 		}
 		float xCD;
 		float yCD;
