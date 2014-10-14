@@ -20,8 +20,7 @@ Trap::Trap()
 	LogManager &log_manager = LogManager::getInstance();
 
 #ifdef REGISTER
-	// Player controls hero, so register with keyboard.
-	registerInterest(DF_KEYBOARD_EVENT);
+	
 
 	// Need to update fire rate control each step.
 	registerInterest(DF_STEP_EVENT);
@@ -37,6 +36,33 @@ Trap::Trap()
 	WorldManager &world_manager = WorldManager::getInstance();
 	Position pos(7, world_manager.getBoundary().getVertical() / 2);
 	setPosition(Position(25, 10));
+	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
+	//setYVelocity(0.25);
+	// Set firing variables.
+}
+
+Trap::Trap(int x, int y)
+{
+
+	LogManager &log_manager = LogManager::getInstance();
+
+#ifdef REGISTER
+
+
+	// Need to update fire rate control each step.
+	registerInterest(DF_STEP_EVENT);
+#endif
+
+	// Set object type.
+	setType("Trap");
+	auto& resMgr = ResourceManager::getInstance();
+	setSprite(resMgr.getSprite("trap"));
+	setSpriteSlowdown(4);
+	setAltitude(1);
+	// Set starting location.
+	WorldManager &world_manager = WorldManager::getInstance();
+	Position pos(7, world_manager.getBoundary().getVertical() / 2);
+	setPosition(Position(x, y));
 	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
 	//setYVelocity(0.25);
 	// Set firing variables.

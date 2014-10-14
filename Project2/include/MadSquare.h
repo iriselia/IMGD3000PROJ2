@@ -14,6 +14,7 @@ private:
 	int fire_countdown;
 public:
 	MadSquare();
+	MadSquare(int x, int y);
 	~MadSquare();
 	void fire();
 	int eventHandler(Event *p_e);
