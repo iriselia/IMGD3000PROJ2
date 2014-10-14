@@ -39,5 +39,6 @@ public:
 	~Hero();
 	int eventHandler(Event *p_e);
 	void draw();
+	//void specialAction();
 	void switchAnimation();
 };

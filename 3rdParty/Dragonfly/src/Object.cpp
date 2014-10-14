@@ -55,6 +55,11 @@ void Object::draw()
 
 }
 
+void Object::specialAction()
+{
+
+
+}
 int Object::unregisterInterest(string event_type)
 {
 	return 0;

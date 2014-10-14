@@ -18,6 +18,7 @@
 #include "Trap.h"
 #include "MadSquare.h"
 #include "Platform.h"
+#include "Suicider.h"
 #include "Star.h"
 
 GameStart::GameStart()
@@ -78,11 +79,14 @@ int GameStart::eventHandler(Event *p_e)
 void GameStart::start()
 {
 
+
 	// Create hero.
 	new Hero;
 	new Trap(35, 6);
 	new MadSquare(45, 7);
+
 	new Platform(false, 50, 4, 0, 21, 0.0, 0.1);
+	new Suicider(50, 20);
 	new Platform(true, 30, 6, 17, 11, 0.2, 0.0);
 	new Star;
 	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
