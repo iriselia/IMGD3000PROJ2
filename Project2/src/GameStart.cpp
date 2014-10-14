@@ -20,6 +20,7 @@
 #include "Platform.h"
 #include "Suicider.h"
 #include "Star.h"
+#include "WinFlag.h"
 
 GameStart::GameStart()
 {
@@ -78,17 +79,17 @@ int GameStart::eventHandler(Event *p_e)
 
 void GameStart::start()
 {
-
-
-	// Create hero.
-	new Hero;
-	new Trap(35, 6);
-	new MadSquare(45, 7);
-
 	new Platform(false, 50, 4, 0, 21, 0.0, 0.1);
 	new Suicider(50, 20);
 	new Platform(true, 30, 6, 17, 11, 0.2, 0.0);
 	new Star;
+	new WinFlag(40,20);
+
+	// Create hero.
+	new Trap(35, 6);
+	new MadSquare(45, 7);
+	new Hero;
+
 	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
 	//   p_vo->setLocation(TOP_LEFT);
 	//   p_vo->setViewString("Nukes");

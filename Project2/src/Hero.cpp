@@ -56,20 +56,22 @@ Hero::Hero()
 
 Hero::~Hero()
 {
-
-	// Create GameOver object.
-	GameOver *p_go = new GameOver;
-
-	// Make big explosion.
-	for (int i = -8; i <= 8; i += 5)
+	if (isActive())
 	{
-		for (int j = -5; j <= 5; j += 3)
+		// Create GameOver object.
+		GameOver *p_go = new GameOver;
+
+		// Make big explosion.
+		for (int i = -8; i <= 8; i += 5)
 		{
-			Position temp_pos = this->getPosition();
-			temp_pos.setX(this->getPosition().getX() + i);
-			temp_pos.setY(this->getPosition().getY() + j);
-			Explosion *p_explosion = new Explosion;
-			p_explosion->setPosition(temp_pos);
+			for (int j = -5; j <= 5; j += 3)
+			{
+				Position temp_pos = this->getPosition();
+				temp_pos.setX(this->getPosition().getX() + i);
+				temp_pos.setY(this->getPosition().getY() + j);
+				Explosion *p_explosion = new Explosion;
+				p_explosion->setPosition(temp_pos);
+			}
 		}
 	}
 }

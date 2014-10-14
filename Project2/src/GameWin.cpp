@@ -11,6 +11,7 @@
 
 // Game includes.
 #include "GameWin.h"
+#include "GameStart.h"
 #include "EventKeyboard.h"
 
 GameWin::GameWin()
@@ -64,6 +65,9 @@ GameWin::~GameWin()
 		{
 //			p_o->setPosition(viewToWorld(p_o->getPosition()));
 			p_o->setActive(true);
+			EventKeyboard ke;
+			ke.setKey('p');
+			p_o->eventHandler(&ke);
 		}
 	}
 }

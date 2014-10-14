@@ -13,6 +13,7 @@
 #include "Explosion.h"
 #include "EventCollision.h"
 #include "WinFlag.h"
+#include "GameWin.h"
 
 WinFlag::WinFlag()
 {
@@ -126,8 +127,6 @@ void WinFlag::activate(EventCollision* _eventCollision)
 	if (((_eventCollision->getObject1()->getType()) == "Hero") ||
 		((_eventCollision->getObject2()->getType()) == "Hero"))
 	{
-		WorldManager &world_manager = WorldManager::getInstance();
-		world_manager.markForDelete(_eventCollision->getObject1());
-		world_manager.markForDelete(_eventCollision->getObject2());
+		new GameWin;
 	}
 }
