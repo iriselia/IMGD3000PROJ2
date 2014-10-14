@@ -72,9 +72,9 @@ WinFlag::WinFlag(int x, int y)
 
 WinFlag::~WinFlag()
 {
-	new GameOverFlag;
 	if (isActive())
 	{
+		new GameOverFlag;
 
 		Position temp_pos = this->getPosition();
 		temp_pos.setX(this->getPosition().getX());
