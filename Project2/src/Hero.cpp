@@ -42,7 +42,7 @@ Hero::Hero()
 	// Set starting location.
 	WorldManager &world_manager = WorldManager::getInstance();
 	Position pos(7, world_manager.getBoundary().getVertical() / 2);
-	setPosition(Position(5, 10));
+	setPosition(Position(3, 3));
 	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
 	world_manager.setViewFollowing(this);
 	//setYVelocity(0.25);

@@ -79,15 +79,21 @@ int GameStart::eventHandler(Event *p_e)
 
 void GameStart::start()
 {
-	new Platform(false, 50, 4, 0, 21, 0.0, 0.1);
-	new Suicider(50, 20);
-	new Platform(true, 30, 6, 17, 11, 0.2, 0.0);
 	new Star;
-	new WinFlag(40,20);
+
+	// Area 1
+	new Platform(false, 50, 10, 15, 21, 0.0, 0.0);
+	
+	new Platform(true, 100, 6, 0, 11, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	
+	
 
 	// Create hero.
 	new Trap(35, 6);
 	new MadSquare(45, 7);
+
+
+	//new WinFlag(40, 20);
 	new Hero;
 
 	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
