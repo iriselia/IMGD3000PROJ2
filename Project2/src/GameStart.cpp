@@ -89,9 +89,25 @@ void GameStart::start()
 	new Platform(true, 40, 6, 150, 30+15, 0.0, 0.6); // size, height, x, y, xspeed, yspeed
 	new Platform(false, 60, 6, 200, 20+15, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
 	new Platform(false, 20, 6, 240, 14+15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
-	new Platform(true, 40, 6, 250, 7+15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
-	new Platform(false, 50, 6, 350, 30, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
-	new Platform(true, 70, 6, 430, 35, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 40, 10, 250, 0+15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(false, 50, 6, 300, 30, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 106, 6, 340, 39, 0.6, 0.0); // size, height, x, y, xspeed, yspeed
+
+	// Area 2
+	//new Platform(false, 200, 6, 450, 45, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	
+	new Platform(false, 80, 10, 460, 45, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 30, 20, 440, 10, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 30, 30, 490, 15, 0.0, 0.0); // enemy after this // dogs // yellow
+
+	
+	new Platform(false, 35, 10, 550, 45, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 200, 5, 590, 48, 0.0, 0.0); // enemies here
+	new Platform(false, 50, 6, 780, 55, 0.0, 0.3); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 126, 6, 835, 70, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 250, 20, 920, 50, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+
+	//Area 3
 
 
 	// Create hero.
@@ -100,7 +116,7 @@ void GameStart::start()
 
 
 	//new WinFlag(40, 20);
-	new Hero(155, 20);
+	new Hero(780, 10);
 
 
 	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
