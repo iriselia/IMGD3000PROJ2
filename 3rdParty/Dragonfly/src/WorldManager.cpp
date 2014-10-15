@@ -236,11 +236,24 @@ void WorldManager::update()
 	onEvent(&stepEvent);
 	logManager.writeLog("GameManager: Step Event sent to all objects.\n");
 
+	// record # of platform
+	int np = 1;
 	// Move all objects
 	auto itr = ObjectListIterator(&updates);
 	itr.first();
 	while (!itr.isDone())
 	{
+		auto ptr = itr.currentObject();
+		if (ptr->getType() == "Platform")
+		{
+			np++;
+			if (np == 2)
+			{
+				ptr = ptr;
+			}
+		}
+
+
 		int x = itr.currentObject()->getXVelocityStep();
 		int y = itr.currentObject()->getYVelocityStep();
 

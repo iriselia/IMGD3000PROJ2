@@ -82,15 +82,21 @@ void GameStart::start()
 	new Star;
 
 	// Area 1
-	new Platform(false, 50, 10, 15, 21, 0.0, 0.0);
 	
-	new Platform(true, 100, 6, 0, 11, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
-	
-	
+							//x y
+	new Platform(false, 100, 6, 0, 11, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 30, 6, 105, 12, 0.0, 0.0);
+	new Platform(true, 40, 6, 150, 30, 0.0, 0.6); // size, height, x, y, xspeed, yspeed
+	new Platform(false, 60, 6, 220, 9, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(false, 20, 6, 240, 15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 40, 6, 290, 16, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(false, 50, 6, 350, 15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 70, 6, 430, 17, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+
 
 	// Create hero.
-	new Trap(35, 6);
-	new MadSquare(45, 7);
+	//new Trap(35, 6);
+	//new MadSquare(45, 7);
 
 
 	//new WinFlag(40, 20);
