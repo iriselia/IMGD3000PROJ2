@@ -172,4 +172,19 @@ void Suicider::activate(EventCollision* _eventCollision)
 		world_manager.markForDelete(_eventCollision->getObject1());
 		world_manager.markForDelete(_eventCollision->getObject2());
 	}
+
+	if (((_eventCollision->getObject1()->getType()) == "Platform") ||
+		((_eventCollision->getObject2()->getType()) == "Platform"))
+	{
+		WorldManager &world_manager = WorldManager::getInstance();
+		if ((_eventCollision->getObject1()->getType()) == "Platform")
+		{
+			world_manager.markForDelete(_eventCollision->getObject2());
+
+		}
+		else
+		{
+			world_manager.markForDelete(_eventCollision->getObject1());
+		}
+	}
 }
