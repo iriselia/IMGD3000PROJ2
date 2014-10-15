@@ -234,7 +234,7 @@ void Platform::hit(EventCollision *p_c)
 				}
 				else
 				{
-					world_manager.markForDelete(heroPtr);
+					//world_manager.markForDelete(heroPtr);
 				}
 			}
 		}
