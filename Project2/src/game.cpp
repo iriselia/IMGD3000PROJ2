@@ -55,24 +55,32 @@ void loadResources()
 	ResourceManager &resource_manager = ResourceManager::getInstance();
 	auto& gameMgr = GameManager::getInstance();
 
-	hr |= resource_manager.loadSprite("sprites/ship-spr.txt", "hero");
-	hr |= resource_manager.loadSprite("sprites/saucer-spr.txt", "saucer");
-	hr |= resource_manager.loadSprite("sprites/bullet-spr.txt", "bullet");
+	//hero sprites
+	hr |= resource_manager.loadSprite("sprites/hero/hero-walk-left-spr.txt", "hero_walk_left");
+	hr |= resource_manager.loadSprite("sprites/hero/hero-walk-right-spr.txt", "hero_walk_right");
+	hr |= resource_manager.loadSprite("sprites/hero/hero-jump-spr.txt", "hero_jump");
+
+	//monster sprites
+	hr |= resource_manager.loadSprite("sprites/madsquare-spr.txt", "madsquare");
+	hr |= resource_manager.loadSprite("sprites/suicider-spr.txt", "suicider");
+
+	//bullets
+	hr |= resource_manager.loadSprite("sprites/bullet-right-spr.txt", "bullet-right");
+	hr |= resource_manager.loadSprite("sprites/bullet-left-spr.txt", "bullet-left");
+	hr |= resource_manager.loadSprite("sprites/bullet1-spr.txt", "bullet1");
+
+	//effects
 	hr |= resource_manager.loadSprite("sprites/explosion-spr.txt", "explosion");
 	hr |= resource_manager.loadSprite("sprites/trap-spr.txt", "trap");
+	
+	//game related
 	hr |= resource_manager.loadSprite("sprites/gamestart-spr.txt", "gamestart");
 	hr |= resource_manager.loadSprite("sprites/gameover-spr.txt", "gameover");
 	hr |= resource_manager.loadSprite("sprites/gameoverflag-spr.txt", "gameoverflag");
 	hr |= resource_manager.loadSprite("sprites/gamewin-spr.txt", "gamewin");
 	hr |= resource_manager.loadSprite("sprites/winflag-spr.txt", "winflag");
-	hr |= resource_manager.loadSprite("sprites/madsquare-spr.txt", "madsquare");
-	hr |= resource_manager.loadSprite("sprites/bullet1-spr.txt", "bullet1");
-	hr |= resource_manager.loadSprite("sprites/suicider-spr.txt", "suicider");
 
-	//hero sprites
-	hr |= resource_manager.loadSprite("sprites/hero/hero-walk-left-spr.txt", "hero_walk_left");
-	hr |= resource_manager.loadSprite("sprites/hero/hero-walk-right-spr.txt", "hero_walk_right");
-	hr |= resource_manager.loadSprite("sprites/hero/hero-jump-spr.txt", "hero_jump");
+
 
 	if (hr)
 	{

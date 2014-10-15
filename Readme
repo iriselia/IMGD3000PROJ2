@@ -1,26 +1,17 @@
-Student Name: Yong Piao
-ID: YPIAO
+Student Name: Yong Piao, Jordan Silva
+ID: YPIAO, JSILVA
 
-----Project2-
-Platform: Windows/Visual Studio with CMake
+----Project3 Final----
+Platform: Windows/Visual Studio
 Description:
 
-Sample saucer game with sprites and score table runs no problem, viewobject works perfectly as well.
+It is the final version of our project3 game. This project contains a visual studio
+solution to build the game.
 
 ----How to use:
-Install CMake on windows.
 
-Open cmake and type in the root directory of the project.
-This path should include CMakeLists.txt, a CMake folder, and a 3rdParty folder.
+Run the solution, and build Project3.
 
-Set the output path as *replace this section with your root directory*/Build.
+go to bin_debug folder under the root path to play the game.
 
-Next, click Configure, choose the compiler you are using, however choose the x86 version,
-not 64 bit, nor the ARM verison.
-
-Click generate.
-
-Go to the Build folder under the root directory. The solution should be created,
-all necessary settings should be set based on your environment.
-
-Build and run.
+Controls: WASD or arrow keys. Jump can done with keyboard or mouse left click.
