@@ -113,6 +113,11 @@ void GameStart::start()
 	new Platform(false, 35, 10, 550, 45, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
 	new Suicider(550, 43);
 	new Platform(true, 200, 5, 590, 48, 0.0, 0.0); // enemies here
+	new Trap(625, 43);
+	new Suicider(650, 46);
+	new Trap(705, 38);
+	new Trap(675, 38);
+	new Suicider(770, 46);
 	new Platform(false, 50, 6, 780, 55, 0.0, 0.3); // size, height, x, y, xspeed, yspeed
 	new Platform(true, 126, 6, 835, 70, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 	new Platform(true, 250, 20, 920, 50, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
@@ -125,11 +130,14 @@ void GameStart::start()
 	new MadSquare(1230, 29);
 	new Platform(true, 30, 4, 1260, 33, 0.0, 0.0); // up
 	new Platform(true, 30, 4, 1299, 33, 0.0, 0.0); // up
+	new Trap(1315, 32);
 	new Platform(false, 110, 30, 1295, 50, 0.0, 0.0); // down
 	new Platform(false, 90, 5, 1409, 45, 0.0, 0.0); // down
+	new Suicider(1439, 43);
+	new Suicider(1484, 42);
 	new Platform(false, 20, 5, 1509, 39, 0.4, 0.0); // down
 	new Platform(false, 50, 7, 1531, 33, 0.0, 0.0); // down
-
+	new Platform(false, 3, 5, 1539, 29, 0.0, 0.0); // down
 	//new Platform(false, 35, 10, 550, 45, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
 	//new Platform(true, 200, 5, 590, 48, 0.0, 0.0); // enemies here
 	//new Platform(false, 50, 6, 780, 55, 0.0, 0.3); // size, height, x, y, xspeed, yspeed
@@ -143,7 +151,7 @@ void GameStart::start()
 
 
 	new WinFlag(1545, 31);
-	new Hero(1150, 10);
+	new Hero(600, 10);
 	//new Hero(380, 10);
 
 	//new WinFlag(40, 20);
