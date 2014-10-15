@@ -151,7 +151,7 @@ void GameStart::start()
 
 
 	new WinFlag(1545, 31);
-	new Hero(600, 10);
+	new Hero(5, 10);
 	//new Hero(380, 10);
 
 	//new WinFlag(40, 20);
