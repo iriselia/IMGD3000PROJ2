@@ -22,12 +22,16 @@ int main(int argc, char *argv[])
 
 	// Start up game manager.
 	GameManager &game_manager = GameManager::getInstance();
+
 	if (game_manager.startUp())
 	{
 		log_manager.writeLog("Error starting game manager!");
 		game_manager.shutDown();
 		return 0;
 	}
+
+	auto& worldManager = WorldManager::getInstance();
+	worldManager.setBoundary(Box(Position(0, 0), 80, 2000));
 
 	// Load game resources.
 	loadResources();
