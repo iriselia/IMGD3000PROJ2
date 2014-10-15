@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	}
 
 	auto& worldManager = WorldManager::getInstance();
-	worldManager.setBoundary(Box(Position(0, 0), 80, 2000));
+	worldManager.setBoundary(Box(Position(0, 0), 2000, 80));
 
 	// Load game resources.
 	loadResources();

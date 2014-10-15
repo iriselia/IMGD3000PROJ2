@@ -121,16 +121,16 @@ bool inBound(Box box)
 	auto& worldMgr = WorldManager::getInstance();
 
 	int hr = false;
-	int x = worldMgr.getBoundary().getVertical();
-	int y = worldMgr.getBoundary().getHorizontal();
+	int x = worldMgr.getBoundary().getHorizontal();
+	int y = worldMgr.getBoundary().getVertical();
 
 	Position pos = box.getCorner();
 
 
 	hr |= pos.getX() > x;
 	hr |= pos.getY() > y;
-	hr |= (pos.getX() + box.getVertical()) < 0;
-	hr |= (pos.getY() + box.getHorizontal()) < 0;
+	hr |= (pos.getX() + box.getHorizontal()) < 0;
+	hr |= (pos.getY() + box.getVertical()) < 0;
 
 	return hr ? false : true;
 }
