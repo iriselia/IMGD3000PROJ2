@@ -36,6 +36,7 @@ private:
 
 public:
 	Hero();
+	Hero(int x, int y);
 	~Hero();
 	int eventHandler(Event *p_e);
 	void draw();

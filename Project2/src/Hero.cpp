@@ -54,6 +54,43 @@ Hero::Hero()
 	nuke_count = 1;
 }
 
+Hero::Hero(int x, int y)
+{
+
+	LogManager &log_manager = LogManager::getInstance();
+
+#ifdef REGISTER
+	// Player controls hero, so register with keyboard.
+	registerInterest(DF_KEYBOARD_EVENT);
+
+	// Need to update fire rate control each step.
+	registerInterest(DF_STEP_EVENT);
+#endif
+
+	// Set object type.
+	setType("Hero");
+	auto& resMgr = ResourceManager::getInstance();
+	m_state = HeroState::WalkRight;
+	setSprite(resMgr.getSprite("hero_jump"));
+	setSpriteSlowdown(4);
+	setAltitude(3);
+
+	// Set starting location.
+	WorldManager &world_manager = WorldManager::getInstance();
+	Position pos(7, world_manager.getBoundary().getVertical() / 2);
+	setPosition(Position(x, y));
+	setBox(Box(Position(0, 0), getSprite()->getWidth(), getSprite()->getHeight()));
+	world_manager.setViewFollowing(this);
+	//setYVelocity(0.25);
+	// Set firing variables.
+	fire_slowdown = 15;
+	fire_countdown = fire_slowdown;
+
+
+	nuke_count = 1;
+}
+
+
 Hero::~Hero()
 {
 	if (isActive())

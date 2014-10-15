@@ -84,14 +84,14 @@ void GameStart::start()
 	// Area 1
 	
 							//x y
-	new Platform(false, 100, 6, 0, 11, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
-	new Platform(true, 30, 6, 105, 12, 0.0, 0.0);
-	new Platform(true, 40, 6, 150, 30, 0.0, 0.6); // size, height, x, y, xspeed, yspeed
-	new Platform(false, 60, 6, 220, 9, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
-	new Platform(false, 20, 6, 240, 15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
-	new Platform(true, 40, 6, 290, 16, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
-	new Platform(false, 50, 6, 350, 15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
-	new Platform(true, 70, 6, 430, 17, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(false, 100, 6, 0, 11+15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 30, 6, 105, 12+15, 0.0, 0.0);
+	new Platform(true, 40, 6, 150, 30+15, 0.0, 0.6); // size, height, x, y, xspeed, yspeed
+	new Platform(false, 60, 6, 200, 20+15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(false, 20, 6, 240, 14+15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 40, 6, 250, 7+15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(false, 50, 6, 350, 30, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 70, 6, 430, 35, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 
 
 	// Create hero.
@@ -100,7 +100,8 @@ void GameStart::start()
 
 
 	//new WinFlag(40, 20);
-	new Hero;
+	new Hero(155, 20);
+
 
 	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
 	//   p_vo->setLocation(TOP_LEFT);
