@@ -56,18 +56,21 @@ GameWin::~GameWin()
 	for (i.first(); !i.isDone(); i.next())
 	{
 		Object *p_o = i.currentObject();
-		if (p_o->getType() != "GameStart")
+		if (p_o)
 		{
-			world_manager.markForDelete(p_o);
-			p_o->setActive(false);
-		}
-		if (p_o->getType() == "GameStart")
-		{
-//			p_o->setPosition(viewToWorld(p_o->getPosition()));
-			p_o->setActive(true);
-			EventKeyboard ke;
-			ke.setKey('p');
-			p_o->eventHandler(&ke);
+			if (p_o->getType() != "GameStart")
+			{
+				world_manager.markForDelete(p_o);
+				p_o->setActive(false);
+			}
+			if (p_o->getType() == "GameStart")
+			{
+				//			p_o->setPosition(viewToWorld(p_o->getPosition()));
+				p_o->setActive(true);
+				EventKeyboard ke;
+				ke.setKey('p');
+				p_o->eventHandler(&ke);
+			}
 		}
 	}
 }
