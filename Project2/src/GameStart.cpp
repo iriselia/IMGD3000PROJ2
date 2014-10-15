@@ -97,25 +97,42 @@ void GameStart::start()
 	new Platform(true, 40, 10, 250, 0+15, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 	new Platform(false, 50, 6, 300, 30, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 	new Trap(301, 29);
-	new Platform(true, 106, 6, 340, 39, 0.6, 0.0); // size, height, x, y, xspeed, yspeed
+	new Platform(true, 106, 6, 353, 39, 0.3, 0.0); // size, height, x, y, xspeed, yspeed
 	new MadSquare(360, 29);
 
 	// Area 2
 	//new Platform(false, 200, 6, 450, 45, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 	
 	new Platform(false, 80, 10, 460, 45, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	new Trap(465, 44);
+	new MadSquare(500, 12);
 	new Platform(true, 30, 20, 440, 10, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 	new Platform(true, 30, 30, 490, 15, 0.0, 0.0); // enemy after this // dogs // yellow
 
 	
 	new Platform(false, 35, 10, 550, 45, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
+	new Suicider(550, 43);
 	new Platform(true, 200, 5, 590, 48, 0.0, 0.0); // enemies here
 	new Platform(false, 50, 6, 780, 55, 0.0, 0.3); // size, height, x, y, xspeed, yspeed
 	new Platform(true, 126, 6, 835, 70, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 	new Platform(true, 250, 20, 920, 50, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 
 	//Area 3
+	new Platform(false, 110, 10, 1180, 55, 0.3, 0.0); // down
+	new Platform(true, 75, 5, 1173, 45, 0.0, 0.15); // up
+	new Platform(true, 30, 4, 1222, 33, 0.0, 0.0); // up
+	new Platform(true, 30, 4, 1260, 33, 0.0, 0.0); // up
+	new Platform(true, 30, 4, 1299, 33, 0.0, 0.0); // up
+	new Platform(false, 110, 30, 1295, 50, 0.0, 0.0); // down
+	new Platform(false, 90, 5, 1409, 45, 0.0, 0.0); // down
+	new Platform(false, 20, 5, 1509, 39, 0.4, 0.0); // down
+	new Platform(false, 50, 7, 1531, 31, 0.0, 0.0); // down
 
+	//new Platform(false, 35, 10, 550, 45, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
+	//new Platform(true, 200, 5, 590, 48, 0.0, 0.0); // enemies here
+	//new Platform(false, 50, 6, 780, 55, 0.0, 0.3); // size, height, x, y, xspeed, yspeed
+	//new Platform(true, 126, 6, 835, 70, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	//new Platform(true, 250, 20, 920, 50, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 
 	// Create hero.
 	//new Trap(35, 6);
@@ -123,8 +140,7 @@ void GameStart::start()
 
 
 	//new WinFlag(40, 20);
-	new Hero(380, 10);
-
+	new Hero(470, 10);
 
 	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
 	//   p_vo->setLocation(TOP_LEFT);
