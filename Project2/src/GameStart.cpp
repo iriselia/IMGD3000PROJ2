@@ -108,7 +108,18 @@ void GameStart::start()
 	new Platform(true, 250, 20, 920, 50, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 
 	//Area 3
+	new Platform(false, 110, 10, 1180, 55, 0.3, 0.0); // down
+	new Platform(true, 75, 5, 1173, 45, 0.0, 0.15); // up
+	new Platform(true, 30, 4, 1222, 33, 0.0, 0.0); // up
+	new Platform(true, 30, 4, 1260, 33, 0.0, 0.0); // up
+	new Platform(true, 30, 4, 1299, 33, 0.0, 0.0); // up
+	new Platform(false, 110, 30, 1295, 50, 0.0, 0.0); // down
 
+	//new Platform(false, 35, 10, 550, 45, 0.2, 0.0); // size, height, x, y, xspeed, yspeed
+	//new Platform(true, 200, 5, 590, 48, 0.0, 0.0); // enemies here
+	//new Platform(false, 50, 6, 780, 55, 0.0, 0.3); // size, height, x, y, xspeed, yspeed
+	//new Platform(true, 126, 6, 835, 70, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
+	//new Platform(true, 250, 20, 920, 50, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 
 	// Create hero.
 	//new Trap(35, 6);
@@ -116,7 +127,7 @@ void GameStart::start()
 
 
 	//new WinFlag(40, 20);
-	new Hero(780, 10);
+	new Hero(1160, 10);
 
 
 	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
