@@ -23,9 +23,17 @@ Bullet::Bullet(Position hero_pos, int velocityX, int velocityY, int typee) {
 	type = typee;
 	auto& resMgr = ResourceManager::getInstance();
 	if (type == 1)
-	setSprite(resMgr.getSprite("bullet1"));
-	else
+	{
 		setSprite(resMgr.getSprite("bullet1"));
+	}
+	else if (type == 2)
+	{
+		setSprite(resMgr.getSprite("bullet-left"));
+	}
+	else if (type == 3)
+	{
+		setSprite(resMgr.getSprite("bullet-right"));
+	}
 
 	setSpriteSlowdown(4);
 	// Set object type.
