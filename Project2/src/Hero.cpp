@@ -93,11 +93,13 @@ Hero::Hero(int x, int y)
 
 Hero::~Hero()
 {
+	WorldManager &world_manager = WorldManager::getInstance();
+
 	if (isActive())
 	{
 		// Create GameOver object.
 		GameOver *p_go = new GameOver;
-
+		world_manager.setViewFollowing(nullptr);
 		// Make big explosion.
 		for (int i = -8; i <= 8; i += 5)
 		{

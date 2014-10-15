@@ -98,6 +98,7 @@ void GameStart::start()
 	new Platform(false, 50, 6, 300, 30, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
 	new Trap(301, 29);
 	new Platform(true, 106, 6, 340, 39, 0.6, 0.0); // size, height, x, y, xspeed, yspeed
+	new MadSquare(360, 29);
 
 	// Area 2
 	//new Platform(false, 200, 6, 450, 45, 0.0, 0.0); // size, height, x, y, xspeed, yspeed
@@ -122,7 +123,7 @@ void GameStart::start()
 
 
 	//new WinFlag(40, 20);
-	new Hero(230, 10);
+	new Hero(380, 10);
 
 
 	//   ViewObject *p_vo = new ViewObject; // Count of nukes.
