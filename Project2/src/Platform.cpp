@@ -36,7 +36,7 @@ Platform::Platform()
 	setPosition(pos);
 	height = 5;
 	setBox(Box(Position(), size, height));
-
+	thecolor = rand() % 7;
 
 
 
@@ -59,7 +59,7 @@ Platform::Platform(bool thickness, int sizee, int heightt, int x, int y, float x
 	setPosition(pos);
 	height = heightt;
 	setBox(Box(Position(), size, height));
-
+	thecolor = rand() % 7;
 
 
 
@@ -289,6 +289,7 @@ void Platform::draw()
 
 	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
 
+	
 	if (isItThick == false)
 	{
 		if (height <= 2)
@@ -298,7 +299,7 @@ void Platform::draw()
 			{
 				Position temp(getPosition().getX() + i, getPosition().getY());
 
-				graphics_manager.drawCh(temp, PLATFORM_THIN);
+				graphics_manager.drawCh(temp, PLATFORM_THIN, thecolor);
 			}
 
 
@@ -314,7 +315,7 @@ void Platform::draw()
 
 						Position temp(getPosition().getX() + i, getPosition().getY());
 
-						graphics_manager.drawCh(temp, PLATFORM_THIN);
+						graphics_manager.drawCh(temp, PLATFORM_THIN, thecolor);
 						//graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
 					}
 
@@ -323,9 +324,9 @@ void Platform::draw()
 				{
 					Position temp(getPosition().getX(), getPosition().getY() + j);
 
-					graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
+					graphics_manager.drawCh(temp, PLATFORM_THIN_WALL, thecolor);
 					temp.setXY(getPosition().getX() + size - 1, getPosition().getY() + j);
-					graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
+					graphics_manager.drawCh(temp, PLATFORM_THIN_WALL, thecolor);
 
 				}
 
@@ -338,7 +339,7 @@ void Platform::draw()
 				if (i <= size - 3)
 				{
 					Position temp(getPosition().getX() + i + 1, getPosition().getY() + height - 2);
-					graphics_manager.drawCh(temp, PLATFORM_THIN);
+					graphics_manager.drawCh(temp, PLATFORM_THIN, thecolor);
 				}
 				else
 				{
@@ -363,7 +364,7 @@ void Platform::draw()
 			{
 				Position temp(getPosition().getX() + i, getPosition().getY());
 
-				graphics_manager.drawCh(temp, PLATFORM_THICK);
+				graphics_manager.drawCh(temp, PLATFORM_THICK, thecolor);
 			}
 
 
@@ -378,7 +379,7 @@ void Platform::draw()
 					{
 						Position temp(getPosition().getX() + i, getPosition().getY());
 
-						graphics_manager.drawCh(temp, PLATFORM_THICK);
+						graphics_manager.drawCh(temp, PLATFORM_THICK, thecolor);
 						//graphics_manager.drawCh(temp, PLATFORM_THIN_WALL);
 					}
 
@@ -387,9 +388,9 @@ void Platform::draw()
 				{
 					Position temp(getPosition().getX(), getPosition().getY() + j);
 
-					graphics_manager.drawCh(temp, PLATFORM_THICK_WALL);
+					graphics_manager.drawCh(temp, PLATFORM_THICK_WALL, thecolor);
 					temp.setXY(getPosition().getX() + size - 1, getPosition().getY() + j);
-					graphics_manager.drawCh(temp, PLATFORM_THICK_WALL);
+					graphics_manager.drawCh(temp, PLATFORM_THICK_WALL, thecolor);
 
 				}
 
@@ -402,7 +403,7 @@ void Platform::draw()
 				if (i <= size - 3)
 				{
 					Position temp(getPosition().getX() + i + 1, getPosition().getY() + height - 2);
-					graphics_manager.drawCh(temp, PLATFORM_THICK);
+					graphics_manager.drawCh(temp, PLATFORM_THICK, thecolor);
 				}
 				else
 				{

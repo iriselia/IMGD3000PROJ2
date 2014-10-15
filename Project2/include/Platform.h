@@ -20,6 +20,7 @@ class Platform : public Object {
 	 int move_countdown;
 	 float desiredXVelocity;
 	 float desiredYVelocity;
+	 int thecolor;
   void out();
   void step(EventStep *p_s);
   void hit(EventCollision *p_c);

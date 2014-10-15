@@ -266,6 +266,7 @@ void Hero::draw()
 	GraphicsManager &graphics_manager = GraphicsManager::getInstance();
 	Box box = getBox();
 	std::stringstream curPos;
+	//graphics_manager.drawCh(temp, PLATFORM_THICK_WALL, thecolor);
 	curPos << "Hero Position: " << getPosition().getX() << " , " << getPosition().getY() << " ";
 	curPos << "Height: " << box.getVertical() << " , " << "Width: " << box.getHorizontal();
 /*	graphics_manager.drawString(Position(0, 24), curPos.str(), LEFT_JUSTIFIED);*/
